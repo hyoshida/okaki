@@ -49,3 +49,5 @@ group :development do
   gem 'spring'
 end
 
+# Devise is a flexible authentication solution for Rails based on Warden.
+gem 'devise'
