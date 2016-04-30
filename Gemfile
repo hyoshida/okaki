@@ -54,3 +54,6 @@ end
 
 # Devise is a flexible authentication solution for Rails based on Warden.
 gem 'devise'
+
+# Slim is a template language whose goal is reduce the syntax to the essential parts without becoming cryptic.
+gem 'slim-rails'
