@@ -10,7 +10,15 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, length: { maximum: 255 }
 
+  before_validation :generate_name, on: :create
+
   def to_param
     name
+  end
+
+  private
+
+  def generate_name
+    self.name = email.sub(/@.*/, '')
   end
 end
