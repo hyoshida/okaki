@@ -1,0 +1,15 @@
+.users
+  h2
+    | 投稿者
+  ol
+    - @users.each do |user|
+      li
+        = user.email
+
+.entries
+  h2
+    | 最新の記事
+  ol
+    - @entries.each do |entry|
+      li
+        = entry.updated_at
