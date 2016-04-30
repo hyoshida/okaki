@@ -37,5 +37,9 @@ class CreateAll < ActiveRecord::Migration
       # t.index :confirmation_token, unique: true
       # t.index :unlock_token, unique: true
     end
+
+    create_table :entries do |t|
+      t.timestamps null: false
+    end
   end
 end
