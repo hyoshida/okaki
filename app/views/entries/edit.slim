@@ -2,7 +2,7 @@ h1 Editing entry
 
 == render 'form'
 
-= link_to 'Show', @entry
+= link_to 'Show', [@user, @entry]
 '|
-= link_to 'Back', entries_path
+= link_to 'Back', user_entries_path(@user)
 

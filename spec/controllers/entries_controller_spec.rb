@@ -53,8 +53,10 @@ RSpec.describe EntriesController, type: :controller do
   end
 
   describe "GET #new" do
+    sign_in_user
+
     it "assigns a new entry as @entry" do
-      get :new, {}, valid_session
+      get :new, { user_name: subject.current_user }, valid_session
       expect(assigns(:entry)).to be_a_new(Entry)
     end
   end

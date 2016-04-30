@@ -10,10 +10,10 @@ table
   tbody
     - @entries.each do |entry|
       tr
-        td = link_to 'Show', entry
-        td = link_to 'Edit', edit_entry_path(entry)
-        td = link_to 'Destroy', entry, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Show', [@user, entry]
+        td = link_to 'Edit', edit_user_entry_path(@user, entry)
+        td = link_to 'Destroy', [@user, entry], data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Entry', new_entry_path
+= link_to 'New Entry', new_user_entry_path(@user)

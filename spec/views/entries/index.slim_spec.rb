@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "entries/index", type: :view do
+  let(:user) { build(:user) }
+
   before(:each) do
+    assign(:user, user)
     assign(:entries, [
-      Entry.create!(),
-      Entry.create!()
+      create(:entry, user: user),
+      create(:entry, user: user)
     ])
   end
 
