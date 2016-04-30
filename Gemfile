@@ -39,6 +39,9 @@ group :development, :test do
 
   # rspec-rails is a testing framework.
   gem 'rspec-rails', '~> 3.0'
+
+  # factory_girl provides a framework and DSL for defining and using factories.
+  gem 'factory_girl_rails'
 end
 
 group :development do
