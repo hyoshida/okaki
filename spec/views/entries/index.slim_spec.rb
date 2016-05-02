@@ -9,6 +9,8 @@ RSpec.describe "entries/index", type: :view do
       create(:entry, user: user),
       create(:entry, user: user)
     ])
+
+    allow(view).to receive(:current_user).and_return(user)
   end
 
   it "renders a list of entries" do

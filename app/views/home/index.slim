@@ -11,7 +11,7 @@
   ol
     - @users.each do |user|
       li
-        = user.email
+        = link_to user.name, user_entries_path(user)
 
 .entries
   h2
@@ -19,4 +19,4 @@
   ol
     - @entries.each do |entry|
       li
-        = entry.updated_at
+        = link_to entry.title, [entry.user, entry]

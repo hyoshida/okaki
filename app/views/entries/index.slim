@@ -1,4 +1,5 @@
-h1 Listing entries
+h1
+  | Listing entries
 
 table
   thead
@@ -6,14 +7,22 @@ table
       th
       th
       th
+      th
 
   tbody
     - @entries.each do |entry|
       tr
-        td = link_to 'Show', [@user, entry]
-        td = link_to 'Edit', edit_user_entry_path(@user, entry)
-        td = link_to 'Destroy', [@user, entry], data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to 'Show', [@user, entry]
+        - if current_user == @user
+          td
+            = link_to 'Edit', edit_user_entry_path(@user, entry)
+          td
+            = link_to 'Destroy', [@user, entry], data: { confirm: 'Are you sure?' }, method: :delete
+        td
+          = entry.title
 
 br
 
-= link_to 'New Entry', new_user_entry_path(@user)
+- if current_user == @user
+  = link_to 'New Entry', new_user_entry_path(@user)

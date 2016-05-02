@@ -1,6 +1,13 @@
 p#notice = notice
 
+.entry
+  h1
+    = @entry.title
 
-= link_to 'Edit', edit_user_entry_path(@user, @entry)
-'|
+  p
+    = @entry.body
+
+- if current_user == @user
+  = link_to 'Edit', edit_user_entry_path(@user, @entry)
+  '|
 = link_to 'Back', user_entries_path(@user)

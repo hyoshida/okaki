@@ -61,7 +61,10 @@ class EntriesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def entry_params
-    params.fetch(:entry, {})
+    params.fetch(:entry, {}).permit(
+      :title,
+      :body
+    )
   end
 
   def ensure_author
