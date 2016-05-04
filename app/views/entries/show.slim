@@ -1,8 +1,13 @@
-p#notice = notice
-
 #entry
-  h1.title
-    = @entry.title
+  .created_at
+    = l @entry.created_at.to_date
+
+  .title
+    h1.page-header
+      = @entry.title
+      - if current_user == @user
+        small
+          = link_to 'Edit', edit_user_entry_path(@user, @entry)
 
   .body class="#{'doruby' if @entry.doruby?}"
     - if @entry.doruby?
@@ -10,7 +15,19 @@ p#notice = notice
     - else
       = @entry.body
 
-- if current_user == @user
-  = link_to 'Edit', edit_user_entry_path(@user, @entry)
-  '|
-= link_to 'Back', user_entries_path(@user)
+  hr
+
+  #user
+    .panel.panel-primary
+      .panel-heading
+        | この記事を書いた人
+      .panel-body
+        .media
+          .media-left
+            = link_to gravatar_tag(@user), @user
+          .media-body
+            .name
+              h4.media-heading
+                = link_to @user.nickname, @user
+            .profile
+              = strip_tags @user.profile

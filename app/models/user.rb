@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
 
   before_validation :generate_name, on: :create
 
+  def nickname
+    read_attribute(:nickname) || name
+  end
+
   def to_param
     name
   end

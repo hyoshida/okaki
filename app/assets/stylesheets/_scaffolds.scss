@@ -1,34 +1,32 @@
+$footer-height: 200px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: '游ゴシック体', 'Yu Gothic', 'YuGothic', 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'Osaka', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-size: 17px;
   line-height: 18px;
+  margin-bottom: $footer-height;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 100%;
   line-height: 18px;
 }
 
 pre {
   background-color: #eee;
   padding: 10px;
-  font-size: 11px;
+  font-size: 90%;
 }
 
 a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+  color: #1a6dab;
 }
 
 div {
@@ -59,7 +57,7 @@ div {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    font-size: 12px;
+    font-size: 16px;
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;
@@ -67,7 +65,20 @@ div {
   }
 
   ul li {
-    font-size: 12px;
+    font-size: 16px;
     list-style: square;
   }
+}
+
+main {
+  margin-bottom: 50px;
+}
+
+footer {
+  padding: 30px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
+  background-color: #f5f5f5;
 }

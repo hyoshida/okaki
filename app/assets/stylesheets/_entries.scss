@@ -1,3 +1,22 @@
-// Place all the styles related to the entries controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#entry .body {
+  margin-bottom: 50px;
+  line-height: 250%;
+
+  a:before {
+    margin-right: 3px;
+    @include glyphicon('share');
+  }
+
+  pre a,
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a {
+    color: #333;
+
+    &:before {
+      margin-right: 0;
+      content: '';
+    }
+  }
+}
