@@ -3,7 +3,7 @@ class Entry < ActiveRecord::Base
 
   belongs_to :user
 
-  scope :recent, -> { order(:updated_at).limit(10) }
+  scope :recent, -> { order(updated_at: :desc).limit(10) }
 
   validates :user, presence: true
   validates :title, presence: true, length: { maximum: 255 }
@@ -11,6 +11,14 @@ class Entry < ActiveRecord::Base
   validates :slug, presence: true, length: { maximum: 255 }
 
   before_validation :generate_slug, on: :create
+
+  # from DoRuby
+  class << self
+    def find_by_permalink!(user, date_str, slug)
+      date = Date.new(date_str[0, 4].to_i, date_str[4, 2].to_i, date_str[6, 2].to_i)
+      user.entries.find_by!('DATE(created_at) = ? AND slug = ?', date, slug)
+    end
+  end
 
   def to_param
     slug

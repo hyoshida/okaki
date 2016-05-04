@@ -1,12 +1,12 @@
 class EntriesController < ApplicationController
   before_action :set_user
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :ensure_author, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :doruby]
+  before_action :ensure_author, except: [:index, :show, :doruby]
 
   # GET /users/:user_name/entries
   def index
-    @entries = Entry.all
+    @entries = @user.entries.all
   end
 
   # GET /users/:user_name/entries/1
@@ -46,6 +46,11 @@ class EntriesController < ApplicationController
   def destroy
     @entry.destroy
     redirect_to user_entries_url(@user), notice: 'Entry was successfully destroyed.'
+  end
+
+  def doruby
+    @entry = Entry.find_by_permalink!(@user, params[:date], params[:slug])
+    redirect_to [@user, @entry]
   end
 
   private
