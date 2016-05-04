@@ -57,3 +57,6 @@ gem 'devise'
 
 # Slim is a template language whose goal is reduce the syntax to the essential parts without becoming cryptic.
 gem 'slim-rails'
+
+# bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.
+gem 'bootstrap-sass', '~> 3.3.6'
