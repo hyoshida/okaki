@@ -23,7 +23,7 @@ class Entry < ActiveRecord::Base
     slug = title.gsub(SLUG_UNSAFE, '_')
     slug_with_suffix = slug
 
-    self.slug = loop do
+    self.slug ||= loop do
       break slug_with_suffix unless self.class.exists?(slug: slug_with_suffix)
       slug_with_suffix = [slug, suffix += 1].join('_')
     end
