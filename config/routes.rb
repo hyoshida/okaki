@@ -2,9 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, param: :name do
-    resources :entries, param: :slug, except: :show do
+    resources :entries, only: :new
+    resources :entries, except: [:new, :show], param: :slug, constraints: { format: false } do
       collection do
-        get '*slug', action: :show, constraints: { format: false }
+        get '*slug/edit', action: :edit
+        get '*slug', action: :show
+        put '*slug', action: :update
+        patch '*slug', action: :update
+        delete '*slug', action: :destroy
       end
     end
   end
