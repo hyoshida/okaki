@@ -1,11 +1,14 @@
 p#notice = notice
 
-.entry
-  h1
+#entry
+  h1.title
     = @entry.title
 
-  p
-    = @entry.body
+  .body class="#{'doruby' if @entry.doruby?}"
+    - if @entry.doruby?
+      = @entry.body.html_safe
+    - else
+      = @entry.body
 
 - if current_user == @user
   = link_to 'Edit', edit_user_entry_path(@user, @entry)
