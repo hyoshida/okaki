@@ -1,5 +1,6 @@
 class Entry < ActiveRecord::Base
-  SLUG_UNSAFE = /[.!~*';\/#?:@&=+$,\[\]]/
+  SLUG_UNSAFE = /[.!~*';\/#?:@&=+$,\[\] ]/
+  SLUG_SEPARATOR = '-'
 
   belongs_to :user
 
@@ -28,12 +29,12 @@ class Entry < ActiveRecord::Base
 
   def generate_slug
     suffix = 0
-    slug = title.gsub(SLUG_UNSAFE, '_')
+    slug = title.gsub(SLUG_UNSAFE, SLUG_SEPARATOR)
     slug_with_suffix = slug
 
     self.slug ||= loop do
       break slug_with_suffix unless self.class.exists?(slug: slug_with_suffix)
-      slug_with_suffix = [slug, suffix += 1].join('_')
+      slug_with_suffix = [slug, suffix += 1].join(SLUG_SEPARATOR)
     end
   end
 end
