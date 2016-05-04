@@ -2,6 +2,9 @@ class CreateAll < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.string :name, null: false
+      t.string :nickname
+      t.string :title
+      t.text :profile
 
       ## Database authenticatable
       t.string :email, null: false, default: ""
@@ -41,14 +44,15 @@ class CreateAll < ActiveRecord::Migration
     end
 
     create_table :entries do |t|
-      t.integer :user_id, null: false
-      t.string :title, null: false
-      t.text :body, null: false
+      t.boolean :draft, null: false, default: false, index: true
+      t.integer :user_id, null: false, index: true
       t.string :slug, null: false
+      t.string :title, null: false
+      t.text :headline
+      t.text :body, null: false
+      t.boolean :doruby, null: false, default: false, index: true
 
       t.timestamps null: false
-
-      t.index :user_id
     end
   end
 end
