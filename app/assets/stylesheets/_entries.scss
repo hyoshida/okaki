@@ -5,11 +5,10 @@
 #entry .body {
   margin-bottom: 50px;
   font-size: 120%;
-  line-height: 250%;
+  line-height: 2;
 
-  a:before {
-    margin-right: 3px;
-    @include glyphicon('share');
+  a {
+    text-decoration: underline;
   }
 
   pre a,
@@ -18,10 +17,6 @@
   h3 a,
   h4 a {
     color: #333;
-
-    &:before {
-      margin-right: 0;
-      content: '';
-    }
+    text-decoration: none;
   }
 }
