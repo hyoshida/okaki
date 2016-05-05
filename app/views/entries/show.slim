@@ -9,6 +9,10 @@
         small
           = link_to 'Edit', edit_user_entry_path(@user, @entry)
 
+  - if @entry.created_at <= 1.year.ago
+    .alert.alert-warning
+      | この記事は公開から１年以上が経過しています。情報が古い可能性がありますのでご注意ください。
+
   .body class="#{'doruby' if @entry.doruby?}"
     - if @entry.doruby?
       = syntax_highlight @entry.body
