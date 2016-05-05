@@ -7,7 +7,7 @@ module ApplicationHelper
   def syntax_highlight(html)
     doc = Nokogiri::HTML(html)
     doc.search('pre').each do |pre|
-      lang = pre.children.attribute('class').try(:value) || :bash
+      lang = pre.children.attribute('class').try(:value) || :text
       code = CodeRay.scan(pre.text.strip, lang).div
       pre.replace(code)
     end
