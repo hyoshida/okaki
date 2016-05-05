@@ -24,10 +24,10 @@
       .panel-body
         .media
           .media-left
-            = link_to gravatar_tag(@user), @user
+            = link_to gravatar_tag(@user, class: 'img-circle'), @user
           .media-body
             .name
-              h4.media-heading
+              .media-heading
                 = link_to @user.nickname, @user
             .profile
               = strip_tags @user.profile
