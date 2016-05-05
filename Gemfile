@@ -60,3 +60,7 @@ gem 'slim-rails'
 
 # bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.
 gem 'bootstrap-sass', '~> 3.3.6'
+
+# CodeRay is a Ruby library for syntax highlighting.
+gem 'coderay'
+gem 'coderay_bash'

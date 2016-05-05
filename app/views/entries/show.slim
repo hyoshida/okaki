@@ -11,7 +11,7 @@
 
   .body class="#{'doruby' if @entry.doruby?}"
     - if @entry.doruby?
-      = @entry.body.html_safe
+      = syntax_highlight @entry.body
     - else
       = @entry.body
 
