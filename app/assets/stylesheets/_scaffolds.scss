@@ -14,12 +14,6 @@ body {
   margin-bottom: $footer-height;
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 90%;
-}
-
 a {
   &:link,
   &:visited,
@@ -113,4 +107,12 @@ h4 {
   padding-left: 20px;
   line-height: 2;
   border-left: 1px solid #333;
+}
+
+.CodeRay pre {
+  padding: 0;
+  font-size: 90%;
+  line-height: 1.75;
+  background: none;
+  border: 0;
 }
