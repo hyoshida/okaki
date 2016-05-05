@@ -29,6 +29,11 @@
       color: #333;
       text-decoration: none;
     }
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
   }
 }
 
