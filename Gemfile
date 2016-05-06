@@ -64,3 +64,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # CodeRay is a Ruby library for syntax highlighting.
 gem 'coderay'
 gem 'coderay_bash'
+
+# font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
+gem 'font-awesome-rails'
+
+# AwesomeAdminLayout provides a simple way to add admin panel layout to your application.
+gem 'awesome_admin_layout'
