@@ -5,6 +5,7 @@ class CreateAll < ActiveRecord::Migration
       t.string :nickname
       t.string :title
       t.text :profile
+      t.boolean :admin, null: false, default: false
 
       ## Database authenticatable
       t.string :email, null: false, default: ""
