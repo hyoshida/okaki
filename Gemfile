@@ -70,3 +70,6 @@ gem 'font-awesome-rails'
 
 # AwesomeAdminLayout provides a simple way to add admin panel layout to your application.
 gem 'awesome_admin_layout'
+
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs.
+gem 'kaminari'
