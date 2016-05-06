@@ -73,3 +73,6 @@ gem 'awesome_admin_layout'
 
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs.
 gem 'kaminari'
+
+# Ransack is a rewrite of MetaSearch created by Ernie Miller and maintained by Ryan Bigg, Jon Atack and a great group of contributors.
+gem 'ransack'
