@@ -88,3 +88,6 @@ gem 'jquery-turbolinks'
 
 # Markdown to HTML converter and editor.
 gem 'pagedown-bootstrap-rails'
+
+# Redcarpet is a Ruby library for Markdown processing that smells like butterflies and popcorn.
+gem 'redcarpet'
