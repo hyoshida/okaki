@@ -38,15 +38,16 @@ html
                 = link_to "Contact", "#"
 
       .container.with-footer
-        main.col-md-8
-          p#notice
-            = notice
+        .row
+          main.col-md-8
+            p#notice
+              = notice
 
-          = yield
+            = yield
 
-        aside.col-md-4
-          h2.text-muted
-            | サイドバー的なサムシング
+          aside.col-md-4
+            h2.text-muted
+              | サイドバー的なサムシング
 
       footer
         .container
