@@ -55,5 +55,12 @@ class CreateAll < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    create_table :blog do |t|
+      t.string :title, null: false
+      t.string :meta_keywords
+      t.string :meta_description
+      t.timestamps null: false
+    end
   end
 end
