@@ -82,3 +82,6 @@ gem 'dynamic_form'
 
 # FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
 gem 'friendly_id'
+
+# jQuery plugin for drop-in fix binded events problem caused by Turbolinks.
+gem 'jquery-turbolinks'
