@@ -19,7 +19,7 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
 
     item 'Entries' do
       link controller.admin_entries_path
-      icon 'cube'
+      icon 'file-text-o'
     end
 
     divider
