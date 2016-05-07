@@ -5,6 +5,7 @@ class CreateAll < ActiveRecord::Migration
       t.string :nickname
       t.string :title
       t.text :profile
+      t.boolean :admin, null: false, default: false
 
       ## Database authenticatable
       t.string :email, null: false, default: ""
@@ -52,6 +53,13 @@ class CreateAll < ActiveRecord::Migration
       t.text :body, null: false
       t.boolean :doruby, null: false, default: false, index: true
 
+      t.timestamps null: false
+    end
+
+    create_table :blog do |t|
+      t.string :title, null: false
+      t.string :meta_keywords
+      t.string :meta_description
       t.timestamps null: false
     end
   end

@@ -1,8 +1,12 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  friendly_id :name
 
   has_many :entries
 
@@ -13,16 +17,12 @@ class User < ActiveRecord::Base
   before_validation :generate_name, on: :create
 
   def nickname
-    read_attribute(:nickname) || name
-  end
-
-  def to_param
-    name
+    read_attribute(:nickname).presence || name
   end
 
   private
 
   def generate_name
-    self.name ||= email.sub(/@.*/, '')
+    self.name = email.sub(/@.*/, '') if name.blank?
   end
 end

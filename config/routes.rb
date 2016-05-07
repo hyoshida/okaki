@@ -14,6 +14,18 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resource :dashboard, only: [:show]
+
+    resources :users
+    resources :entries
+    resource :blog, controller: :blog, only: [:show, :edit, :update]
+
+    get :profile, controller: :users
+
+    root to: 'dashboard#show'
+  end
+
   # for DoRuby
   get ':user_name/:date/*slug', to: 'entries#doruby', constraints: { date: /\d{8}/, slug: /[^\/]*/, format: false }
 

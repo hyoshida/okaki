@@ -1,0 +1,38 @@
+= form_for [:admin, @entry] do |f|
+  = error_messages_for @entry
+
+  fieldset
+    .col-md-3
+      legend
+        | 一般
+
+    .col-md-9
+      .form-group
+        = f.label :title
+        = f.text_field :title
+
+      .form-group
+        = f.label :headline
+        = f.text_area :headline, rows: 5
+
+      .form-group
+        = f.label :body
+        = f.text_area :body, rows: 10
+
+      .form-group
+        .checkbox
+          = f.label :draft do
+            = f.check_box :draft
+            = f.object.class.human_attribute_name(:draft)
+
+    .col-md-3
+      legend
+        | システム
+
+    .col-md-9
+      .form-group
+        = f.label :slug
+        = f.text_field :slug
+
+  .hidden
+    = f.submit

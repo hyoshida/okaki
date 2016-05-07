@@ -1,0 +1,14 @@
+#awesome_admin_layout {
+  font-size: larger;
+}
+
+.awesome_admin_layout-main {
+  margin: 0;
+}
+
+.awesome_admin_layout-navigation-toggle {
+  position: absolute;
+  z-index: 300;
+  // = .comable-page-heading's `padding`
+  padding: 25px 30px;
+}

@@ -1,4 +1,8 @@
 class Entry < ActiveRecord::Base
+  extend FriendlyId
+
+  friendly_id :slug
+
   SLUG_UNSAFE = /[.!~*';\/#?:@&=+$,\[\] ]/
   SLUG_SEPARATOR = '-'
 
@@ -19,10 +23,6 @@ class Entry < ActiveRecord::Base
       date = Date.new(date_str[0, 4].to_i, date_str[4, 2].to_i, date_str[6, 2].to_i)
       user.entries.find_by!('DATE(created_at) = ? AND slug = ?', date, slug)
     end
-  end
-
-  def to_param
-    slug
   end
 
   private

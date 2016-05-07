@@ -1,0 +1,29 @@
+.admin-panel
+  .admin-panel-fixed-top
+    .admin-panel-heading
+      ul.pull-right.list-inline
+        li
+          = link_to_save
+
+      h1.page-header
+        ol.breadcrumb
+          li>
+            = link_to 'ユーザー', admin_users_path
+          li.active
+            = @user.nickname
+            small<
+              | @#{@user.name}
+
+  .admin-panel-body
+    = render 'form'
+    hr
+    .panel.panel-danger
+      .panel-heading type="button" data-toggle="collapse" data-target="#danger-collapse"
+        strong
+          span.fa.fa-angle-down>
+          | 削除する
+      #danger-collapse.collapse
+        .panel-body
+          p
+            | この操作は元に戻せません。本当に削除してもよろしいですか？
+          = link_to '削除する', [:admin, @user], method: :delete, class: 'btn btn-danger'

@@ -64,3 +64,24 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # CodeRay is a Ruby library for syntax highlighting.
 gem 'coderay'
 gem 'coderay_bash'
+
+# font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
+gem 'font-awesome-rails'
+
+# AwesomeAdminLayout provides a simple way to add admin panel layout to your application.
+gem 'awesome_admin_layout'
+
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs.
+gem 'kaminari'
+
+# Ransack is a rewrite of MetaSearch created by Ernie Miller and maintained by Ryan Bigg, Jon Atack and a great group of contributors.
+gem 'ransack'
+
+# DynamicForm holds a few helpers method to help you deal with your models.
+gem 'dynamic_form'
+
+# FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
+gem 'friendly_id'
+
+# jQuery plugin for drop-in fix binded events problem caused by Turbolinks.
+gem 'jquery-turbolinks'

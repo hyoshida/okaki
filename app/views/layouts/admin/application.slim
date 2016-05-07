@@ -1,0 +1,29 @@
+html
+  head
+    meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"
+    title
+      = Blog.instance.title
+    = stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'admin/application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body
+    = render_admin_layout do
+      #wrapper
+        main.container-fluid
+          - if flash[:alert] || flash[:notice]
+            #notifier
+              - if flash[:alert]
+                .alert.alert-danger.alert-dismissible
+                  button.close type="button" data-dismiss="alert"
+                    span
+                      | &times;
+                  = flash[:alert]
+
+              .alert.alert-success.alert-dismissible
+                button.close type="button" data-dismiss="alert"
+                  span
+                    | &times;
+                = flash[:notice]
+
+          = yield

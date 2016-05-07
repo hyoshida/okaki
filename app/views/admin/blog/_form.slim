@@ -1,0 +1,23 @@
+= form_for [:admin, @blog], url: admin_blog_path, method: :patch do |f|
+  = error_messages_for @blog
+
+  fieldset
+    .col-md-3
+      legend
+        | 一般
+
+    .col-md-9
+      .form-group
+        = f.label :title
+        = f.text_field :title
+
+      .form-group
+        = f.label :meta_keywords
+        = f.text_field :meta_keywords
+
+      .form-group
+        = f.label :meta_description
+        = f.text_field :meta_description
+
+  .hidden
+    = f.submit

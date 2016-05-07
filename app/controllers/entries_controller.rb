@@ -56,12 +56,12 @@ class EntriesController < ApplicationController
   private
 
   def set_user
-    @user = User.find_by!(name: params[:user_name])
+    @user = User.friendly.find(params[:user_name])
   end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_entry
-    @entry = @user.entries.find_by!(slug: params[:slug])
+    @entry = @user.entries.friendly.find(params[:slug])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
