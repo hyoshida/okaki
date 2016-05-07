@@ -48,7 +48,7 @@
                   - if user.admin?
                     | ✔︎
                 td
-                  = link_to user.nickname, [:admin, user]
+                  = link_to user.nickname, admin_user_path(user.id)
                   small.text-muted<
                     | @#{user.name}
                 td

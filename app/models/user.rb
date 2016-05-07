@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   before_validation :generate_name, on: :create
 
   def nickname
-    read_attribute(:nickname) || name
+    read_attribute(:nickname).presence || name
   end
 
   def to_param
