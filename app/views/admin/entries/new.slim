@@ -1,0 +1,16 @@
+.admin-panel
+  .admin-panel-fixed-top
+    .admin-panel-heading
+      ul.pull-right.list-inline
+        li
+          = link_to_save
+
+      h1.page-header
+        ol.breadcrumb
+          li>
+            = link_to '記事', admin_entries_path
+          li.active
+            | 新規作成
+
+  .admin-panel-body
+    = render 'form'
