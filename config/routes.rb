@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
     resources :users
     resources :entries
+    resource :blog, controller: :blog, only: [:show, :edit, :update]
 
     get :profile, controller: :users
 

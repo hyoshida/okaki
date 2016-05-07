@@ -25,7 +25,7 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
     divider
 
     item 'Settings' do
-      link '#' # controller.admin_settings_path
+      link controller.admin_blog_path
       icon 'cog'
     end
 
