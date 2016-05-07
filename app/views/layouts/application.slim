@@ -10,7 +10,7 @@ html
     = csrf_meta_tags
 
   body
-    - if controller_name == 'entries' && action_name == 'edit'
+    - if editor_mode?
       .container-fluid
         main
           p#notice

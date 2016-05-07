@@ -13,4 +13,8 @@ module ApplicationHelper
     end
     doc.to_s.html_safe
   end
+
+  def editor_mode?
+    controller_name == 'entries' && action_name.in?(['new', 'edit'])
+  end
 end
