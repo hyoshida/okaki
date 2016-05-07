@@ -76,3 +76,6 @@ gem 'kaminari'
 
 # Ransack is a rewrite of MetaSearch created by Ernie Miller and maintained by Ryan Bigg, Jon Atack and a great group of contributors.
 gem 'ransack'
+
+# DynamicForm holds a few helpers method to help you deal with your models.
+gem 'dynamic_form'

@@ -70,6 +70,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.6.0)
     factory_girl (4.7.0)
@@ -220,6 +221,7 @@ DEPENDENCIES
   coderay_bash
   coffee-rails (~> 4.1.0)
   devise
+  dynamic_form
   factory_girl_rails
   font-awesome-rails
   jbuilder (~> 2.0)
