@@ -119,3 +119,23 @@ h4 {
   background: none;
   border: 0;
 }
+
+a.new-entry-button {
+  @extend .btn;
+  @extend .btn-danger;
+
+  margin: 5px 10px;
+  padding: 8px 10px !important;
+  color: $btn-danger-color !important;
+
+  &:hover {
+    color: $btn-danger-color;
+    background-color: darken($btn-danger-bg, 10%) !important;
+    border-color: darken($btn-danger-border, 15%);
+  }
+
+  &:focus {
+    background-color: darken($btn-danger-bg, 10%) !important;
+    border-color: darken($btn-danger-border, 25%);
+  }
+}

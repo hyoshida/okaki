@@ -36,6 +36,12 @@ html
                 = link_to "About", "#"
               li
                 = link_to "Contact", "#"
+            - if user_signed_in?
+              ul.nav.navbar-nav.navbar-right
+                li
+                  = link_to new_user_entry_path(current_user), class: 'new-entry-button' do
+                    i.fa.fa-pencil>
+                    | 投稿する
 
       .container.with-footer
         .row
