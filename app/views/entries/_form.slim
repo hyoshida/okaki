@@ -1,26 +1,24 @@
-= form_for [@user, @entry] do |f|
-  - if @entry.errors.any?
-    #error_explanation
-      h2
-        = "#{pluralize(@entry.errors.count, "error")} prohibited this entry from being saved:"
-      ul
-        - @entry.errors.full_messages.each do |message|
-          li
-            = message
+#editor
+  = form_for [@user, @entry] do |f|
+    - if @entry.errors.any?
+      #error_explanation
+        h2
+          = "#{pluralize(@entry.errors.count, "error")} prohibited this entry from being saved:"
+        ul
+          - @entry.errors.full_messages.each do |message|
+            li
+              = message
 
-  .form-group
-    = f.label :title
-    = f.text_field :title
+    .editor-header
+      = f.text_field :title, placeholder: f.object.class.human_attribute_name(:title)
 
-  .form-group
-    = f.label :body
-    .row
-      .col-md-6
-        = f.text_area :body, rows: 10, class: 'wmd-input form-control', id: 'wmd-input-body'
-      .col-md-6
-        #entry
-          .body
-            #wmd-preview-body.wmd-preview
+    .editor-body
+      .editor-body-left
+        = f.text_area :body, rows: 10, class: 'wmd-input form-control', id: 'wmd-input-body', placeholder: f.object.class.human_attribute_name(:body)
+      .editor-body-right
+        #wmd-preview-body.wmd-preview
 
-  .actions
-    = f.submit
+    .editor-footer
+      .pull-right
+        = f.submit
+      = link_to 'Cancel', @entry.persisted? ? [@user, @entry] : user_entries_path(@user), class: 'btn btn-default'

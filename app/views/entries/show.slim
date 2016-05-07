@@ -6,7 +6,7 @@
     h1.page-header
       = @entry.title
       - if current_user == @user
-        small
+        small<
           = link_to 'Edit', edit_user_entry_path(@user, @entry)
 
   - if @entry.created_at <= 1.year.ago

@@ -10,38 +10,45 @@ html
     = csrf_meta_tags
 
   body
-    nav.navbar.navbar-default
-      .container
-        .navbar-header
-          button.navbar-toggle.collapsed type="button" class="" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"
-            span.sr-only
-              | Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          .navbar-brand
-            = Blog.instance.title
-        #navbar.navbar-collapse.collapse
-          ul.nav.navbar-nav
-            li
-              = link_to "Home", root_path, class: 'active'
-            li
-              = link_to "About", "#"
-            li
-              = link_to "Contact", "#"
+    - if controller_name == 'entries' && action_name == 'edit'
+      .container-fluid
+        main
+          p#notice
+            = notice
+          = yield
+    - else
+      nav.navbar.navbar-default
+        .container
+          .navbar-header
+            button.navbar-toggle.collapsed type="button" class="" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"
+              span.sr-only
+                | Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            .navbar-brand
+              = Blog.instance.title
+          #navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li
+                = link_to "Home", root_path, class: 'active'
+              li
+                = link_to "About", "#"
+              li
+                = link_to "Contact", "#"
 
-    .container
-      main.col-md-8
-        p#notice
-          = notice
+      .container.with-footer
+        main.col-md-8
+          p#notice
+            = notice
 
-        = yield
+          = yield
 
-      aside.col-md-4
-        h2.text-muted
-          | サイドバー的なサムシング
+        aside.col-md-4
+          h2.text-muted
+            | サイドバー的なサムシング
 
-    footer
-      .container
-        p.text-muted
-          | Copyright (c) 2016
+      footer
+        .container
+          p.text-muted
+            | Copyright (c) 2016
