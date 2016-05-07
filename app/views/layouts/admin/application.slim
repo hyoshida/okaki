@@ -9,4 +9,21 @@ html
 
   body
     = render_admin_layout do
-      = yield
+      #wrapper
+        main.container-fluid
+          - if flash[:alert] || flash[:notice]
+            #notifier
+              - if flash[:alert]
+                .alert.alert-danger.alert-dismissible
+                  button.close type="button" data-dismiss="alert"
+                    span
+                      | &times;
+                  = flash[:alert]
+
+              .alert.alert-success.alert-dismissible
+                button.close type="button" data-dismiss="alert"
+                  span
+                    | &times;
+                = flash[:notice]
+
+          = yield

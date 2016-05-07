@@ -1,0 +1,68 @@
+.panel > .panel-footer {
+  form {
+    @extend .text-right;
+  }
+}
+
+.page-header > .breadcrumb {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+
+  & > li {
+    color: $text-color;
+
+    & > a {
+      color: darken($breadcrumb-color, 20%);
+    }
+  }
+}
+
+label {
+  @extend .control-label;
+}
+
+select,
+textarea,
+input[type="password"],
+input[type="email"],
+input[type="text"] {
+  @extend .form-control;
+  margin-right: 0.5em;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+table {
+  @extend .table;
+
+  th > a {
+    &:link, &:visited, &:hover, &:active {
+      color: $text-color;
+    }
+  }
+}
+
+legend {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+table > tbody > tr > td > ul {
+  margin-bottom: 0;
+}
+
+.btn-link {
+  outline: none !important;
+}
+
+.form-group .radio-inline {
+  margin-top: 10px;
+  margin-right: 20px;
+}

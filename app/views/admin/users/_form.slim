@@ -1,0 +1,56 @@
+= form_for [:admin, @user] do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2
+        = "#{pluralize(@user.errors.count, "error")} prohibited this entry from being saved:"
+      ul
+        - @user.errors.full_messages.each do |message|
+          li
+            = message
+
+  fieldset
+    .col-md-3
+      legend
+        | 一般
+
+    .col-md-9
+      .form-group
+        = f.label :nickname
+        = f.text_field :nickname
+
+      .form-group
+        = f.label :profile
+        = f.text_area :profile, rows: 10
+
+  fieldset
+    .col-md-3
+      legend
+        | ログイン情報
+
+    .col-md-9
+      .form-group
+        = f.label :email
+        = f.text_field :email
+
+      .form-group
+        = f.label :password
+        = f.password_field :password
+
+  fieldset
+    .col-md-3
+      legend
+        | システム
+
+    .col-md-9
+      .form-group
+        = f.label :name
+        = f.text_field :name
+
+      .form-group
+        .checkbox
+          = f.label :admin do
+            = f.check_box :admin
+            = f.object.class.human_attribute_name(:admin)
+
+  .hidden
+    = f.submit

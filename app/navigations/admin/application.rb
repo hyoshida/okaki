@@ -14,11 +14,10 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
     item 'Entries' do
       link '#' # controller.admin_entries_path
       icon 'cube'
-      active true
     end
 
     item 'Users' do
-      link '#' # controller.admin_users_path
+      link controller.admin_users_path
       icon 'user'
     end
 

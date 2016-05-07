@@ -1,0 +1,85 @@
+body {
+  font-size: 12px;
+  font-family: Verdana, '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}
+
+footer {
+  @extend .text-muted;
+  margin: 25px;
+  text-align: center;
+
+  & > ul > li + li:before {
+    content: '·';
+    padding-right: 10px;
+  }
+}
+
+#wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+
+  body.animated & {
+    @include transition(margin-left 600ms ease, opacity 600ms);
+    opacity: 0;
+    margin-left: -20px;
+  }
+}
+
+#notifier .alert {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.admin-panel-heading {
+  margin: 0 -15px 25px;
+  padding: 25px 30px;
+  border-bottom: 5px solid #eee;
+
+  & > .page-header {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    line-height: 28px;
+    border: none;
+  }
+
+  & > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    & > li {
+      margin-left: 5px;
+    }
+  }
+}
+
+.admin-panel-fixed-top {
+  padding-left: $awesome_admin_layout-navigation-width;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  z-index: 200;
+
+  & > .admin-panel-heading {
+    margin: 0;
+  }
+
+  & + .admin-panel-body {
+    // 89px = admin-panel-heading-height
+    padding-top: 89px + 20px;
+  }
+}
+
+@media screen and (max-width: $screen-sm-min) {
+  .admin-panel-fixed-top {
+    padding-left: 0 !important;
+  }
+
+  .admin-panel-heading {
+    /* = .comable-page-heading's `padding` + toggle button size + margin */
+    padding-left: 30px + 34px + 20px !important;
+  }
+}
