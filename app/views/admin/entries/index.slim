@@ -1,0 +1,60 @@
+.admin-panel
+  .admin-panel-heading
+    ul.pull-right.list-inline
+      li
+        .btn-group role="group"
+          = link_to_previous_page @entries, '<', class: 'btn btn-default' do
+            .btn.btn-default disabled="disabled"
+              | <
+          = link_to_next_page @entries, '>', class: 'btn btn-default' do
+            .btn.btn-default disabled="disabled"
+              | >
+      li
+        = link_to '新規作成', new_admin_entry_path, class: 'btn btn-default'
+
+    h1.page-header
+      | 記事
+      small<
+        | #{@entries.total_count} 件
+
+  .admin-panel-body
+    #search
+      = search_form_for @q, url: admin_entries_path do |f|
+        .input-group
+          = f.text_field :title_cont, class: 'form-control'
+          span.input-group-btn
+            = f.submit '検索', class: 'btn btn-default'
+
+    section
+      - if @entries.empty?
+        | レコードが見つかりませんでした。
+      - else
+        table.table.table-striped
+          thead
+            th
+              = sort_link [:admin, @q], :draft
+            th
+              = sort_link [:admin, @q], :title
+            th
+              = sort_link [:admin, @q], :user
+            th
+              = sort_link [:admin, @q], :updated_at
+            th
+              = sort_link [:admin, @q], :created_at
+          tbody
+            - @entries.each do |entry|
+              tr
+                td
+                  - if entry.draft?
+                    | ✔︎
+                td
+                  = link_to entry.title, [:admin, entry]
+                td
+                  = link_to entry.user.nickname, [:admin, entry.user]
+                td
+                  = l entry.updated_at, format: :long
+                td
+                  = l entry.created_at, format: :long
+
+        .text-center
+          = paginate @entries
