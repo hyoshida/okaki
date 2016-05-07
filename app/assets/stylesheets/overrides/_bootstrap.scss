@@ -1,0 +1,20 @@
+label {
+  @extend .control-label;
+}
+
+select,
+textarea,
+input[type="password"],
+input[type="email"],
+input[type="text"] {
+  @extend .form-control;
+}
+
+input[type="submit"] {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+textarea {
+  resize: vertical;
+}
