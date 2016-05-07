@@ -14,7 +14,13 @@
 
   .form-group
     = f.label :body
-    = f.text_area :body
+    .row
+      .col-md-6
+        = f.text_area :body, rows: 10, class: 'wmd-input form-control', id: 'wmd-input-body'
+      .col-md-6
+        #entry
+          .body
+            #wmd-preview-body.wmd-preview
 
   .actions
     = f.submit
