@@ -2,7 +2,7 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
   current_user = controller.current_user
 
   navigation do
-    brand 'Okaki' do
+    brand Blog.instance.title do
       external_link controller.root_path
     end
 
