@@ -41,6 +41,11 @@ module Admin
       redirect_to admin_users_url, notice: 'User was successfully destroyed.'
     end
 
+    def profile
+      @user = current_user
+      render :edit
+    end
+
     private
 
     def set_user

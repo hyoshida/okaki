@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :users
     resources :entries
 
+    get :profile, controller: :users
+
     root to: 'dashboard#show'
   end
 

@@ -14,6 +14,7 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
     item 'Users' do
       link controller.admin_users_path
       icon 'user'
+      active controller.controller_name == 'users' && controller.action_name != 'profile'
     end
 
     item 'Entries' do
@@ -40,11 +41,12 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
     brand current_user.email
 
     item 'Edit Profile' do
-      link '#' # controller.admin_edit_user_path(current_user)
+      link controller.admin_profile_path
+      active controller.controller_name == 'users' && controller.action_name == 'profile'
     end
 
     item 'Logout' do
-      link '#' # controller.admin_destroy_user_session_path, method: :delete
+      link controller.destroy_user_session_path, method: :delete
     end
   end
 end
