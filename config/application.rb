@@ -35,5 +35,7 @@ module Okaki
     config.generators do |g|
       g.jbuilder false
     end
+
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end

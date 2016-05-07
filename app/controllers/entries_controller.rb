@@ -56,7 +56,7 @@ class EntriesController < ApplicationController
   private
 
   def set_user
-    @user = User.find_by!(name: params[:user_name])
+    @user = User.friendly.find(params[:user_name])
   end
 
   # Use callbacks to share common setup or constraints between actions.

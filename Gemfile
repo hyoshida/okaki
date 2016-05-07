@@ -79,3 +79,6 @@ gem 'ransack'
 
 # DynamicForm holds a few helpers method to help you deal with your models.
 gem 'dynamic_form'
+
+# FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
+gem 'friendly_id'

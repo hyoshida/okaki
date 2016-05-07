@@ -1,8 +1,12 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  friendly_id :name
 
   has_many :entries
 
@@ -14,10 +18,6 @@ class User < ActiveRecord::Base
 
   def nickname
     read_attribute(:nickname).presence || name
-  end
-
-  def to_param
-    name
   end
 
   private
