@@ -85,3 +85,9 @@ gem 'friendly_id'
 
 # jQuery plugin for drop-in fix binded events problem caused by Turbolinks.
 gem 'jquery-turbolinks'
+
+# Markdown to HTML converter and editor.
+gem 'pagedown-bootstrap-rails'
+
+# Redcarpet is a Ruby library for Markdown processing that smells like butterflies and popcorn.
+gem 'redcarpet'

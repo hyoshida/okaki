@@ -11,7 +11,6 @@ body {
   font-family: '游ゴシック体', 'Yu Gothic', 'YuGothic', 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'Osaka', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  margin-bottom: $footer-height;
 }
 
 a {
@@ -27,6 +26,10 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+}
+
+.container.with-footer {
+  margin-bottom: $footer-height;
 }
 
 #notice {
