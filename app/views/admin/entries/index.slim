@@ -52,9 +52,9 @@
                 td
                   = link_to entry.user.nickname, [:admin, entry.user]
                 td
-                  = l entry.updated_at, format: :long
+                  = l entry.updated_at
                 td
-                  = l entry.created_at, format: :long
+                  = l entry.created_at
 
         .text-center
           = paginate @entries
