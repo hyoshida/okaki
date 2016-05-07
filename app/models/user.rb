@@ -23,6 +23,6 @@ class User < ActiveRecord::Base
   private
 
   def generate_name
-    self.name ||= email.sub(/@.*/, '')
+    self.name = email.sub(/@.*/, '') if name.blank?
   end
 end
