@@ -6,3 +6,7 @@
 #= require pagedown_init
 #= require turbolinks
 #= require_tree .
+
+$( ->
+  new Editor
+)

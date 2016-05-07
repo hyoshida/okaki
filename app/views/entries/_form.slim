@@ -14,6 +14,7 @@
 
     .editor-body
       .editor-body-left
+        #wmd-button-bar-body.hidden
         = f.text_area :body, rows: 10, class: 'wmd-input form-control', id: 'wmd-input-body', placeholder: f.object.class.human_attribute_name(:body)
       .editor-body-right
         #wmd-preview-body.wmd-preview
