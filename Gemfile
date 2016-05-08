@@ -91,3 +91,6 @@ gem 'pagedown-bootstrap-rails'
 
 # Redcarpet is a Ruby library for Markdown processing that smells like butterflies and popcorn.
 gem 'redcarpet'
+
+# This gem provides a simple and extremely flexible way to upload files from Ruby applications.
+gem 'carrierwave'

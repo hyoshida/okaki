@@ -19,3 +19,6 @@
 
 # Ignore the schema file.
 db/schema.rb
+
+# Ignore all uploaded files.
+/public/uploads

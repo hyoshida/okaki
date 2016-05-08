@@ -110,3 +110,11 @@ a.btn-next-page {
   @extend .btn-lg;
   padding: 10 50px !important;
 }
+
+#ads ul li {
+  margin-bottom: 10px;
+
+  img {
+    width: 100%;
+  }
+}

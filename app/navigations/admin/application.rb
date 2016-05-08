@@ -22,6 +22,11 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
       icon 'file-text-o'
     end
 
+    item 'Advertisements' do
+      link controller.admin_advertisements_path
+      icon 'file-text-o'
+    end
+
     divider
 
     item 'Settings' do

@@ -62,5 +62,13 @@ class CreateAll < ActiveRecord::Migration
       t.string :meta_description
       t.timestamps null: false
     end
+
+    create_table :advertisement do |t|
+      t.boolean :active, null: false, default: true
+      t.string :title
+      t.string :url, null: false
+      t.string :image, null: false
+      t.timestamps null: false
+    end
   end
 end
