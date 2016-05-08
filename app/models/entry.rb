@@ -8,7 +8,7 @@ class Entry < ActiveRecord::Base
 
   belongs_to :user
 
-  scope :recent, -> { order(updated_at: :desc).limit(10) }
+  scope :recent, -> { order(updated_at: :desc) }
 
   validates :user, presence: true
   validates :title, presence: true, length: { maximum: 255 }

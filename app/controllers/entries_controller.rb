@@ -6,7 +6,7 @@ class EntriesController < ApplicationController
 
   # GET /users/:user_name/entries
   def index
-    @entries = @user.entries.all
+    @entries = @user.entries.recent.page(params[:page]).per(per_page).all
   end
 
   # GET /users/:user_name/entries/1
