@@ -34,9 +34,9 @@
             th
               = sort_link [:admin, @q], :active
             th
-              = sort_link [:admin, @q], :title
+              |
             th
-              = sort_link [:admin, @q], :url
+              = sort_link [:admin, @q], :title
             th
               = sort_link [:admin, @q], :updated_at
             th
@@ -48,9 +48,9 @@
                   - if advertisement.active?
                     | ✔︎
                 td
-                  = link_to advertisement.title, [:admin, advertisement]
+                  = link_to image_tag(advertisement.image_url), [:admin, advertisement]
                 td
-                  = link_to advertisement.url, advertisement.url, target: '_blank'
+                  = link_to advertisement.title, [:admin, advertisement]
                 td
                   = l advertisement.updated_at
                 td
