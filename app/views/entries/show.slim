@@ -4,7 +4,7 @@
 
   .title
     h1.page-header
-      = @entry.title
+      = title @entry.title
       - if current_user == @user
         small<
           = link_to 'Edit', edit_user_entry_path(@user, @entry)

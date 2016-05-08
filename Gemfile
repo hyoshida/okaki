@@ -94,3 +94,6 @@ gem 'redcarpet'
 
 # This gem provides a simple and extremely flexible way to upload files from Ruby applications.
 gem 'carrierwave'
+
+# a gem to make your Rails application SEO-friendly.
+gem 'meta-tags'

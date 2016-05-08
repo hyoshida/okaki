@@ -1,10 +1,7 @@
 html
   head
     meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"
-    title
-      = Blog.instance.title
-    meta name="keywords" content="#{Blog.instance.meta_keywords}"
-    meta name="description" content="#{Blog.instance.meta_description}"
+    = display_meta_tags site: Blog.instance.title, description: Blog.instance.meta_description, keywords: Blog.instance.meta_keywords, reverse: true
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
