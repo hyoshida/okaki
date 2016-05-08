@@ -1,0 +1,31 @@
+.entries
+  - entries.each do |entry|
+    - user = entry.user
+
+    .media
+      / .media-left
+        = link_to entry.image, [user, entry]
+
+      .media-body
+        h4.media-heading
+          = link_to entry.title, [user, entry]
+        = strip_tags entry.headline
+
+      .media-footer
+        ul.pull-right.list-inline
+          - if current_user == user
+            li
+              = link_to edit_user_entry_path(user, entry), class: 'btn btn-default' do
+                i.fa.fa-edit>
+                | 編集
+            li
+              = link_to [user, entry], data: { confirm: '本当に削除してもよろしいですか？' }, method: :delete, class: 'btn btn-danger' do
+                i.fa.fa-trash>
+                | 削除
+          li
+            = l entry.created_at.to_date
+        ul.list-inline
+          li
+            = link_to gravatar_tag(user, class: 'img-circle', size: 40), user
+          li
+            = link_to user.nickname, user
