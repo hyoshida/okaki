@@ -18,3 +18,8 @@ input[type="submit"] {
 textarea {
   resize: vertical;
 }
+
+table {
+  @extend .table;
+  @extend .table-striped;
+}

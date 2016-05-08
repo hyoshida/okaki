@@ -23,7 +23,8 @@ module ApplicationHelper
       fenced_code_blocks: true,
       lax_html_blocks: true,
       strikethrough: true,
-      superscript: true
+      superscript: true,
+      tables: true
     }
     html = Redcarpet::Markdown.new(renderer, options).render(text)
     syntax_highlight(html).html_safe
