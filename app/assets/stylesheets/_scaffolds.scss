@@ -13,15 +13,6 @@ body {
   line-height: 1.5;
 }
 
-a {
-  &:link,
-  &:visited,
-  &:hover,
-  &:active {
-    color: #1a6dab;
-  }
-}
-
 div {
   &.field, &.actions {
     margin-bottom: 10px;
