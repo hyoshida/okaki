@@ -1,0 +1,29 @@
+= form_for [:admin, @advertisement] do |f|
+  = error_messages_for @advertisement
+
+  fieldset
+    .col-md-3
+      legend
+        | 一般
+
+    .col-md-9
+      .form-group
+        .checkbox
+          = f.label :active do
+            = f.check_box :active
+            = f.object.class.human_attribute_name(:active)
+
+      .form-group
+        = f.label :title
+        = f.text_field :title
+
+      .form-group
+        = f.label :url
+        = f.text_field :url
+
+      .form-group
+        = f.label :image
+        = f.text_field :image
+
+  .hidden
+    = f.submit
