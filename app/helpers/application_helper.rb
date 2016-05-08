@@ -31,7 +31,7 @@ module ApplicationHelper
   end
 
   def editor_mode?
-    controller_name == 'entries' && action_name.in?(['new', 'edit'])
+    controller_name == 'entries' && action_name.in?(['new', 'edit', 'create', 'update'])
   end
 
   def page_name

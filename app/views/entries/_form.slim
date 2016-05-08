@@ -1,13 +1,20 @@
 #editor
   = form_for [@user, @entry] do |f|
     - if @entry.errors.any?
-      #error_explanation
-        h2
-          = "#{pluralize(@entry.errors.count, "error")} prohibited this entry from being saved:"
-        ul
-          - @entry.errors.full_messages.each do |message|
-            li
-              = message
+      .modal.fade id="myModal" tabindex="-1"
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close type="button" class="close" data-dismiss="modal"
+                span
+                  | &times;
+              strong.text-danger.modal-title
+                | エラーが発生しました
+            .modal-body
+              = error_messages_for @entry
+      coffee:
+        $('#myModal').modal('show')
+
 
     .editor-header
       .form-group
