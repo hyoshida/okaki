@@ -49,6 +49,11 @@ table {
   }
 }
 
+.table > tbody > tr > td,
+.table > tr > td {
+  vertical-align: middle;
+}
+
 legend {
   margin-bottom: 0;
   border-bottom: 0;

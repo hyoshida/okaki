@@ -25,7 +25,7 @@
         = f.label :image
         -  if f.object.image?
           p
-            = image_tag(f.object.image_url)
+            = image_tag(f.object.image_url, width: 360)
         = f.file_field :image
 
   .hidden

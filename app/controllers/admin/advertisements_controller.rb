@@ -4,7 +4,7 @@ module Admin
 
     def index
       @q = Advertisement.ransack(params[:q])
-      @advertisements = @q.result.order(created_at: :desc).page(params[:page]).all
+      @advertisements = @q.result.order(updated_at: :desc).page(params[:page]).all
     end
 
     def show

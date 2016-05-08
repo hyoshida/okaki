@@ -1,0 +1,5 @@
+#ads
+  ul.list-inline
+    - Advertisement.recent.each do |advertisement|
+      li
+        = link_to image_tag(advertisement.image_url), advertisement.url, alt: advertisement.title, target: '_blank'

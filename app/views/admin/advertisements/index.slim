@@ -48,9 +48,12 @@
                   - if advertisement.active?
                     | ✔︎
                 td
-                  = link_to image_tag(advertisement.image_url), [:admin, advertisement]
+                  = link_to image_tag(advertisement.image_url, width: 180), [:admin, advertisement]
                 td
                   = link_to advertisement.title, [:admin, advertisement]
+                  br
+                  small
+                    = advertisement.url
                 td
                   = l advertisement.updated_at
                 td

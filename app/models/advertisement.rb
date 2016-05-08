@@ -1,6 +1,8 @@
 class Advertisement < ActiveRecord::Base
   mount_uploader :image, AdvertisementImageUploader
 
+  scope :recent, -> { order(updated_at: :desc).limit(10) }
+
   validates :title, length: { maximum: 255 }
   validates :url, presence: true, length: { maximum: 255 }
   validates :image, presence: true
