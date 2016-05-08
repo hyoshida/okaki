@@ -34,6 +34,6 @@
   .pagination-group-next
     - next_count = [@entries.total_count - (per_page * @entries.current_page), per_page].min
     - if next_count.positive?
-      = link_to_next_page @entries, "次の#{next_count}件をみる", class: 'btn btn-default btn-lg'
+      = link_to_next_page @entries, "次の#{next_count}件をみる", class: 'btn-next-page'
 
   = paginate @entries

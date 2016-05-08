@@ -111,22 +111,33 @@ h4 {
   border: 0;
 }
 
-a.new-entry-button {
+a.btn-new-entry {
   @extend .btn;
-  @extend .btn-danger;
+  @extend .btn-warning;
+
+  $btn-new-entry-color: #fff;
+  $btn-new-entry-bg: #044065;
+  $btn-new-entry-border: darken( $btn-new-entry-bg, 10%);
+  $btn-new-entry-hover-bg: $btn-warning-bg;
+  $btn-new-entry-hover-border: $btn-warning-border;
 
   margin: 5px 10px;
   padding: 8px 10px !important;
-  color: $btn-danger-color !important;
+  color: $btn-new-entry-color !important;
+  background-color: $btn-new-entry-bg;
+  border-color: $btn-new-entry-border;
 
-  &:hover {
-    color: $btn-danger-color;
-    background-color: darken($btn-danger-bg, 10%) !important;
-    border-color: darken($btn-danger-border, 15%);
-  }
-
+  &:hover,
+  &:active,
   &:focus {
-    background-color: darken($btn-danger-bg, 10%) !important;
-    border-color: darken($btn-danger-border, 25%);
+    color: $btn-danger-color;
+    background-color: darken($btn-new-entry-hover-bg, 10%) !important;
+    border-color: darken($btn-new-entry-hover-border, 15%);
   }
+}
+
+a.btn-next-page {
+  @extend .btn-new-entry;
+  @extend .btn-lg;
+  padding: 10 50px !important;
 }
