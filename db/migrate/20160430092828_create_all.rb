@@ -64,7 +64,7 @@ class CreateAll < ActiveRecord::Migration
     end
 
     create_table :advertisement do |t|
-      t.boolean :active, null: false, default: true
+      t.boolean :active, null: false, default: true, index: true
       t.string :title
       t.string :url, null: false
       t.string :image, null: false
