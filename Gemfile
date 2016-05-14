@@ -97,3 +97,6 @@ gem 'carrierwave'
 
 # a gem to make your Rails application SEO-friendly.
 gem 'meta-tags'
+
+# Ancestry is a gem/plugin that allows the records of a Ruby on Rails ActiveRecord model to be organised as a tree structure (or hierarchy).
+gem 'ancestry'
