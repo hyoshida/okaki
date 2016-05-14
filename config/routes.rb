@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
     resources :users
     resources :entries
+    resources :categories, only: [:index, :create]
     resources :advertisements
     resource :blog, controller: :blog, only: [:show, :edit, :update]
 
