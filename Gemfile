@@ -100,3 +100,6 @@ gem 'meta-tags'
 
 # Ancestry is a gem/plugin that allows the records of a Ruby on Rails ActiveRecord model to be organised as a tree structure (or hierarchy).
 gem 'ancestry'
+
+# jsTree is jquery plugin, that provides interactive trees.
+gem 'rails-assets-jstree', source: 'https://rails-assets.org'
