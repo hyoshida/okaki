@@ -70,5 +70,11 @@ class CreateAll < ActiveRecord::Migration
       t.string :image, null: false
       t.timestamps null: false
     end
+
+    create_table :categories do |t|
+      t.string :name, null: false
+      t.string :ancestry, index: true
+      t.timestamps null: false
+    end
   end
 end
