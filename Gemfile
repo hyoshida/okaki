@@ -103,3 +103,6 @@ gem 'ancestry'
 
 # jsTree is jquery plugin, that provides interactive trees.
 gem 'rails-assets-jstree', source: 'https://rails-assets.org'
+
+# Compass rails is an adapter for the Compass Stylesheet Authoring Framework for Ruby on Rails.
+gem 'compass-rails'
