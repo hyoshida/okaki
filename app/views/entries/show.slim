@@ -1,6 +1,13 @@
 #entry
-  .created_at
-    = l @entry.created_at.to_date
+  ul.list-inline
+    li
+      .created_at
+        = l @entry.created_at.to_date
+    - if @entry.category
+      li
+        .category
+          span.label.label-default
+            = @entry.category.name
 
   .title
     h1.page-header
