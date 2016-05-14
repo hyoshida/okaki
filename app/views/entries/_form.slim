@@ -15,10 +15,11 @@
       coffee:
         $('#myModal').modal('show')
 
-
     .editor-header
       .form-group
         = f.text_field :title, placeholder: f.object.class.human_attribute_name(:title)
+      .form-group
+        = f.grouped_collection_select :category_id, Category.roots, :children, :name, :id, :name, include_blank: "<#{f.object.class.human_attribute_name(:category_id)}>"
       .form-group
         = f.text_area :headline, placeholder: f.object.class.human_attribute_name(:headline), rows: 3
 

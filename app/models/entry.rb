@@ -7,6 +7,7 @@ class Entry < ActiveRecord::Base
   SLUG_SEPARATOR = '-'
 
   belongs_to :user
+  belongs_to :category
 
   scope :recent, -> { order(updated_at: :desc) }
 
