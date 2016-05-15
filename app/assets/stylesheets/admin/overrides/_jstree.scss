@@ -10,12 +10,12 @@
 
   .jstree-wholerow-hovered {
     color: $dropdown-link-color;
-    background-color: $dropdown-link-hover-bg;
+    background: $dropdown-link-hover-bg;
   }
 
   .jstree-wholerow-clicked {
     color: $dropdown-link-active-color;
-    background-color: $dropdown-link-active-bg;
+    background: $dropdown-link-active-bg;
   }
 
   .jstree-anchor.jstree-clicked {
