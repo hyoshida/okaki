@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources :categories, only: :show
+
   resources :users, param: :name do
     resources :entries, only: :new
     resources :entries, except: [:new, :show], param: :slug, constraints: { format: false } do
