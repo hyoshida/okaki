@@ -1,0 +1,37 @@
+javascript:
+  $(function() {
+    var jstreeJson = #{raw @categories.to_jstree(state: { opened: true }, icon: 'fa fa-bars')};
+    category = new Category(jstreeJson);
+  });
+
+.admin-panel
+  .admin-panel-fixed-top
+    .admin-panel-heading
+      ul.pull-right.list-inline
+        li
+          = link_to_save
+
+      h1.page-header
+        | カテゴリ
+
+  .admin-panel-body
+    fieldset
+      .col-md-3
+        legend
+          | NOTE:
+        .help-block
+          ul
+            li
+              | ドラッグアンドドロップ操作ができます。
+            li
+              | 右クリックからさらに細かい操作が選択できます。
+            li
+              | 次のリンクから新しいカテゴリを追加できます:
+              = link_to '新規作成', 'javascript:void(0)', onclick: 'category.addNode()'
+
+      .col-md-9
+        #jstree
+        = form_tag admin_categories_path do
+          .hidden
+            = submit_tag
+          = hidden_field_tag :jstree_json

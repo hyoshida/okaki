@@ -47,6 +47,7 @@ class CreateAll < ActiveRecord::Migration
     create_table :entries do |t|
       t.boolean :draft, null: false, default: false, index: true
       t.integer :user_id, null: false, index: true
+      t.integer :category_id, index: true
       t.string :slug, null: false
       t.string :title, null: false
       t.text :headline
@@ -68,6 +69,13 @@ class CreateAll < ActiveRecord::Migration
       t.string :title
       t.string :url, null: false
       t.string :image, null: false
+      t.timestamps null: false
+    end
+
+    create_table :categories do |t|
+      t.string :name, null: false
+      t.string :ancestry, index: true
+      t.integer :position
       t.timestamps null: false
     end
   end

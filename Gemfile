@@ -97,3 +97,15 @@ gem 'carrierwave'
 
 # a gem to make your Rails application SEO-friendly.
 gem 'meta-tags'
+
+# Ancestry is a gem/plugin that allows the records of a Ruby on Rails ActiveRecord model to be organised as a tree structure (or hierarchy).
+gem 'ancestry'
+
+# jsTree is jquery plugin, that provides interactive trees.
+gem 'rails-assets-jstree', source: 'https://rails-assets.org'
+
+# Compass rails is an adapter for the Compass Stylesheet Authoring Framework for Ruby on Rails.
+gem 'compass-rails'
+
+# This acts_as extension provides the capabilities for sorting and reordering a number of objects in a list.
+gem 'acts_as_list'

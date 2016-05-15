@@ -1,6 +1,12 @@
 #entry
-  .created_at
-    = l @entry.created_at.to_date
+  ul.list-inline
+    li
+      .created_at
+        = l @entry.created_at.to_date
+    - if @entry.category
+      li
+        .category
+          = link_to @entry.category.name, @entry.category, class: 'label label-default'
 
   .title
     h1.page-header

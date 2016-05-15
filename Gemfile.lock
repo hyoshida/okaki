@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.6)
       actionpack (= 4.2.6)
@@ -36,6 +37,10 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_list (0.7.4)
+      activerecord (>= 3.0)
+    ancestry (2.1.0)
+      activerecord (>= 3.0.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.6)
       execjs
@@ -57,6 +62,7 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    chunky_png (1.3.5)
     coderay (1.1.1)
     coderay_bash (1.0.7)
       coderay (>= 1.0)
@@ -67,6 +73,22 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    compass (1.0.3)
+      chunky_png (~> 1.2)
+      compass-core (~> 1.0.2)
+      compass-import-once (~> 1.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      sass (>= 3.3.13, < 3.5)
+    compass-core (1.0.3)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-import-once (1.0.5)
+      sass (>= 3.2, < 3.5)
+    compass-rails (3.0.2)
+      compass (~> 1.0.0)
+      sass-rails (< 5.1)
+      sprockets (< 4.0)
     concurrent-ruby (1.0.1)
     debug_inspector (0.0.2)
     devise (4.0.1)
@@ -84,6 +106,7 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    ffi (1.9.10)
     font-awesome-rails (4.6.2.0)
       railties (>= 3.2, < 5.1)
     friendly_id (5.1.0)
@@ -140,6 +163,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.6)
       sprockets-rails
+    rails-assets-jquery (2.2.3)
+    rails-assets-jstree (3.3.1)
+      rails-assets-jquery (>= 1.9.1)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -160,6 +186,9 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
+    rb-fsevent (0.9.7)
+    rb-inotify (0.9.7)
+      ffi (>= 0.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
     redcarpet (3.3.4)
@@ -231,6 +260,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_list
+  ancestry
   awesome_admin_layout
   bootstrap-sass (~> 3.3.6)
   byebug
@@ -238,6 +269,7 @@ DEPENDENCIES
   coderay
   coderay_bash
   coffee-rails (~> 4.1.0)
+  compass-rails
   devise
   dynamic_form
   factory_girl_rails
@@ -251,6 +283,7 @@ DEPENDENCIES
   pagedown-bootstrap-rails
   pg
   rails (= 4.2.6)
+  rails-assets-jstree!
   ransack
   redcarpet
   rspec-rails (~> 3.0)

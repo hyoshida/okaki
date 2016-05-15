@@ -67,7 +67,9 @@ class EntriesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def entry_params
     params.fetch(:entry, {}).permit(
+      :category_id,
       :title,
+      :headline,
       :body
     )
   end

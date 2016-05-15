@@ -23,3 +23,13 @@ table {
   @extend .table;
   @extend .table-striped;
 }
+
+.navbar-default .navbar-brand a {
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: #777;
+    text-decoration: none;
+  }
+}
