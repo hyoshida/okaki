@@ -1,7 +1,7 @@
 javascript:
   $(function() {
     var jstreeJson = #{raw @categories.to_jstree(state: { opened: true }, icon: 'fa fa-bars')};
-    new Category(jstreeJson);
+    category = new Category(jstreeJson);
   });
 
 .admin-panel
@@ -27,7 +27,7 @@ javascript:
               | 右クリックからさらに細かい操作が選択できます。
             li
               | 次のリンクから新しいカテゴリを追加できます:
-              = link_to '新規作成', 'javascript:void(0)', onclick: 'Category.addJstreeNode()'
+              = link_to '新規作成', 'javascript:void(0)', onclick: 'category.addNode()'
 
       .col-md-9
         #jstree

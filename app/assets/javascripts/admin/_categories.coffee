@@ -1,16 +1,16 @@
 class @Category
-  @addJstreeNode: ($node = '#') ->
-    jstree = $('#jstree').jstree(true)
-    new_node = jstree.create_node($node)
-    jstree.open_node($node) unless jstree.is_open($node)
-    jstree.rename_node(new_node, '新しいカテゴリ')
-    jstree.set_icon(new_node, 'fa fa-bars')
-
   constructor: (jstreeJson = null) ->
     @jstreeJson = jstreeJson
     @destroiedNodes = []
     @setSelectors()
     @initializeJstree()
+
+  addNode: ($node = '#') ->
+    jstree = @getJstree()
+    new_node = jstree.create_node($node)
+    jstree.open_node($node) unless jstree.is_open($node)
+    jstree.rename_node(new_node, '新しいカテゴリ')
+    jstree.set_icon(new_node, 'fa fa-bars')
 
   setSelectors: ->
     @$jstree = $('#jstree')
@@ -40,7 +40,7 @@ class @Category
           {
             create: {
               label: '新規追加',
-              action: -> _this.getJstree().create_node($node)
+              action: -> _this.addNode($node)
             }
             edit: {
               label: '編集する',
