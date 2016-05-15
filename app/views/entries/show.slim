@@ -6,8 +6,7 @@
     - if @entry.category
       li
         .category
-          span.label.label-default
-            = @entry.category.name
+          = link_to @entry.category.name, @entry.category, class: 'label label-default'
 
   .title
     h1.page-header
