@@ -106,3 +106,6 @@ gem 'rails-assets-jstree', source: 'https://rails-assets.org'
 
 # Compass rails is an adapter for the Compass Stylesheet Authoring Framework for Ruby on Rails.
 gem 'compass-rails'
+
+# This acts_as extension provides the capabilities for sorting and reordering a number of objects in a list.
+gem 'acts_as_list'

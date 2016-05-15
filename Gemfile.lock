@@ -37,6 +37,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_list (0.7.4)
+      activerecord (>= 3.0)
     ancestry (2.1.0)
       activerecord (>= 3.0.0)
     arel (6.0.3)
@@ -258,6 +260,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_list
   ancestry
   awesome_admin_layout
   bootstrap-sass (~> 3.3.6)
