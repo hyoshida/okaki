@@ -49,7 +49,7 @@ class @Category
             destory: {
               label: '削除する',
               action: ->
-                @destroiedNodes.push { _destroy: $node.id }
+                _this.destroiedNodes.push { _destroy: $node.id }
                 _this.getJstree().delete_node($node)
             }
           }
