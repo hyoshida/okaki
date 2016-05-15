@@ -1,11 +1,15 @@
 class Category < ActiveRecord::Base
   has_ancestry
 
+  acts_as_list scope: [:ancestry]
+
   has_many :entries
+
+  default_scope -> { order(:position) }
 
   class << self
     def to_jstree(options = {})
-      build_to_jstree(arrange_serializable, options).to_json
+      build_to_jstree(arrange_serializable(order: :position), options).to_json
     end
 
     def from_jstree!(jstree_json)
