@@ -36,7 +36,7 @@ class Category < ActiveRecord::Base
       return unless jstree
 
       jstree.each.with_index(1) do |node, index|
-        return find(node['_destroy']).destroy! if node['_destroy'].present?
+        next find(node['_destroy']).destroy! if node['_destroy'].present?
 
         restore_from_jstree_node!(node, parent, position: index)
       end
