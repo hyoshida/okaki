@@ -1,4 +1,4 @@
-class AssetUploader < CarrierWave::Uploader::Base
+class AssetsUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir

@@ -1,5 +1,5 @@
 class Advertisement < ActiveRecord::Base
-  mount_uploader :image, AdvertisementImageUploader
+  mount_uploader :image, AssetsUploader
 
   scope :recent, -> { order(updated_at: :desc).limit(10) }
 

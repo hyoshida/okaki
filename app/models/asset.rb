@@ -1,5 +1,5 @@
 class Asset < ActiveRecord::Base
-  mount_uploader :file, AssetUploader
+  mount_uploader :file, AssetsUploader
 
   belongs_to :user
 end
