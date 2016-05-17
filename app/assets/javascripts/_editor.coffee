@@ -1,6 +1,11 @@
 class @Editor
   constructor: ->
     @setSelectors()
+
+    # cannot use editor
+    return if @$textarea.length == 0
+    return if @$preview.length == 0
+
     @syncScroller()
 
     @editor = @initializePagedown()
@@ -12,8 +17,6 @@ class @Editor
 
   # Based http://stackoverflow.com/questions/18952623/synchronized-scrolling-using-jquery/18953340#18953340
   syncScroller: ->
-    return if @$textarea.length == 0
-    return if @$preview.length == 0
     sync = (_event) =>
       textarea = @$textarea.get(0)
       preview = @$preview.get(0)
