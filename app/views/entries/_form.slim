@@ -34,3 +34,19 @@
       .pull-right
         = f.submit
       = link_to 'Cancel', @entry.persisted? ? [@user, @entry] : user_entries_path(@user), class: 'btn btn-default'
+
+#uploadImageDialog.modal.fade tabindex="-1"
+  .modal-dialog
+    .modal-content
+      = form_for Asset.new, html: { multipart: true } do |f|
+        .modal-header
+          button.close type="button" class="close" data-dismiss="modal"
+            span
+              | &times;
+          strong.modal-title
+            | 画像のアップロード
+        .modal-body
+          = f.file_field :file, id: 'js-upload-field', data: { url: assets_path }
+        .modal-footer
+          button.btn.btn-default type="button" data-dismiss="modal"
+            | 閉じる

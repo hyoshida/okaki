@@ -109,3 +109,6 @@ gem 'compass-rails'
 
 # This acts_as extension provides the capabilities for sorting and reordering a number of objects in a list.
 gem 'acts_as_list'
+
+# Query File Upload features multiple file selection, drag&drop support, progress bars and preview images for jQuery.
+gem 'jquery-fileupload-rails'

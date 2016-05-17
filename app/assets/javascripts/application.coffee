@@ -3,7 +3,7 @@
 #= require jquery_ujs
 #= require bootstrap-sprockets
 #= require pagedown_bootstrap
-#= require pagedown_init
+#= require jquery-fileupload/basic
 #= require turbolinks
 #= require_tree .
 
