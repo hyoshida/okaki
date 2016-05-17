@@ -11,6 +11,8 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
       icon 'dashboard'
     end
 
+    divider
+
     item 'Users' do
       link controller.admin_users_path
       icon 'user'
@@ -32,9 +34,11 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
       icon 'picture-o'
     end
 
+    divider
+
     item 'Advertisements' do
       link controller.admin_advertisements_path
-      icon 'file-text-o'
+      icon 'bullhorn'
     end
 
     divider
