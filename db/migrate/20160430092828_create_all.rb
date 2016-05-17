@@ -57,14 +57,14 @@ class CreateAll < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    create_table :blog do |t|
+    create_table :blogs do |t|
       t.string :title, null: false
       t.string :meta_keywords
       t.string :meta_description
       t.timestamps null: false
     end
 
-    create_table :advertisement do |t|
+    create_table :advertisements do |t|
       t.boolean :active, null: false, default: true, index: true
       t.string :title
       t.string :url, null: false
