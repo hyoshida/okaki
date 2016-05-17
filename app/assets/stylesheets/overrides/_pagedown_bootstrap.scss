@@ -8,3 +8,11 @@
   border: 1px solid $input-border;
   border-radius: $input-border-radius;
 }
+
+#wmd-help-button-body {
+  @extend .btn-default;
+
+  .fa-info {
+    @extend .fa-question;
+  }
+}
