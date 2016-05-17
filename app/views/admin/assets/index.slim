@@ -36,6 +36,8 @@
             th
               = sort_link [:admin, @q], :user_id
             th
+              = @assets.human_attribute_name(:file_size)
+            th
               = sort_link [:admin, @q], :updated_at
             th
               = sort_link [:admin, @q], :created_at
@@ -46,6 +48,8 @@
                   = link_to asset.title.presence || asset.file.md5, [:admin, asset]
                 td
                   = link_to asset.user.nickname, [:admin, asset.user]
+                td
+                  = number_to_human_size asset.file_size
                 td
                   = l asset.updated_at
                 td

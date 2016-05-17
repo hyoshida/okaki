@@ -11,6 +11,10 @@ class Asset < ActiveRecord::Base
     File.basename(file_url)
   end
 
+  def file_size
+    file.size
+  end
+
   def doruby?
     original_filename.present?
   end
