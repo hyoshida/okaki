@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   # for DoRuby
   get ':user_name/:date/*slug', to: 'entries#doruby', constraints: { date: /\d{8}/, slug: /[^\/]*/, format: false }
+  get ':user_name/files/*filename', to: 'entries#doruby_file', constraints: { filename: /[^\/]*/, format: false }
 
   root to: 'home#index'
 end

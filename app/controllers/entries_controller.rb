@@ -1,8 +1,8 @@
 class EntriesController < ApplicationController
   before_action :set_user
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :doruby]
-  before_action :ensure_author, except: [:index, :show, :doruby]
+  before_action :authenticate_user!, except: [:index, :show, :doruby, :doruby_file]
+  before_action :ensure_author, except: [:index, :show, :doruby, :doruby_file]
 
   # GET /users/:user_name/entries
   def index
@@ -51,6 +51,11 @@ class EntriesController < ApplicationController
   def doruby
     @entry = Entry.find_by_permalink!(@user, params[:date], params[:slug])
     redirect_to [@user, @entry]
+  end
+
+  def doruby_file
+    @asset = Asset.find_by!(user: @user, original_filename: params[:filename])
+    redirect_to @asset.file_url
   end
 
   private
