@@ -78,5 +78,12 @@ class CreateAll < ActiveRecord::Migration
       t.integer :position
       t.timestamps null: false
     end
+
+    create_table :assets do |t|
+      t.integer :user_id, null: false, index: true
+      t.string :title
+      t.string :file, null: false
+      t.timestamps null: false
+    end
   end
 end

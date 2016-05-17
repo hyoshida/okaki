@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   friendly_id :name
 
   has_many :entries
+  has_many :assets
 
   scope :recent, -> { order(updated_at: :desc).limit(10) }
 
