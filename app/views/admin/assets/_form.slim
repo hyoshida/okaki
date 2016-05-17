@@ -1,0 +1,28 @@
+= form_for [:admin, @asset] do |f|
+  = error_messages_for @asset
+
+  fieldset
+    .col-md-3
+      legend
+        | 一般
+
+    .col-md-9
+      .form-group
+        = f.label :title
+        = f.text_field :title
+
+      .form-group
+        = f.label :file
+
+        -  if f.object.file?
+          p
+            = link_to f.object.filename, f.object.file_url, target: '_blank'
+
+        -  if f.object.file? && f.object.image?
+          p
+            = image_tag(f.object.file_url, width: 360)
+
+        = f.file_field :file
+
+  .hidden
+    = f.submit

@@ -1,0 +1,55 @@
+.admin-panel
+  .admin-panel-heading
+    ul.pull-right.list-inline
+      li
+        .btn-group role="group"
+          = link_to_previous_page @assets, '<', class: 'btn btn-default' do
+            .btn.btn-default disabled="disabled"
+              | <
+          = link_to_next_page @assets, '>', class: 'btn btn-default' do
+            .btn.btn-default disabled="disabled"
+              | >
+      li
+        = link_to '新規作成', new_admin_asset_path, class: 'btn btn-default'
+
+    h1.page-header
+      | ファイル
+      small<
+        | #{@assets.total_count} 件
+
+  .admin-panel-body
+    #search
+      = search_form_for @q, url: admin_assets_path do |f|
+        .input-group
+          = f.text_field :title_cont, class: 'form-control'
+          span.input-group-btn
+            = f.submit '検索', class: 'btn btn-default'
+
+    section
+      - if @assets.empty?
+        | レコードが見つかりませんでした。
+      - else
+        table.table.table-striped
+          thead
+            th
+              = sort_link [:admin, @q], :title
+            th
+              = sort_link [:admin, @q], :user_id
+            th
+              = sort_link [:admin, @q], :updated_at
+            th
+              = sort_link [:admin, @q], :created_at
+          tbody
+            - @assets.each do |asset|
+              tr
+                td
+                  = link_to asset.title.presence || asset.file.md5, [:admin, asset]
+                td
+                  = link_to asset.user.nickname, [:admin, asset.user]
+                td
+                  = l asset.updated_at
+                td
+                  = l asset.created_at
+
+        .text-center
+          = paginate @assets
