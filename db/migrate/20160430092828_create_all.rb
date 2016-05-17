@@ -83,6 +83,7 @@ class CreateAll < ActiveRecord::Migration
       t.integer :user_id, null: false, index: true
       t.string :title
       t.string :file, null: false
+      t.string :original_filename
       t.timestamps null: false
     end
   end
