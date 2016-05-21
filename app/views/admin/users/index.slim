@@ -21,7 +21,7 @@
     #search
       = search_form_for @q, url: admin_users_path do |f|
         .input-group
-          = f.text_field :email_cont, class: 'form-control'
+          = f.text_field :email_or_name_or_nickname_cont, class: 'form-control'
           span.input-group-btn
             = f.submit '検索', class: 'btn btn-default'
 
