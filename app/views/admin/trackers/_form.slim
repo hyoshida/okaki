@@ -1,0 +1,29 @@
+= form_for [:admin, @tracker], multipart: true do |f|
+  = error_messages_for @tracker
+
+  fieldset
+    .col-md-3
+      legend
+        | 一般
+
+    .col-md-9
+      .form-group
+        .checkbox
+          = f.label :active do
+            = f.check_box :active
+            = f.object.class.human_attribute_name(:active)
+
+      .form-group
+        = f.label :name
+        = f.text_field :name
+
+      .form-group
+        = f.label :tracker_id
+        = f.text_field :tracker_id
+
+      .form-group
+        = f.label :code
+        = f.text_area :code, rows: 10
+
+  .hidden
+    = f.submit

@@ -111,5 +111,13 @@ class CreateAll < ActiveRecord::Migration
       t.index [:controller_name,:action_name,:session_hash], name: 'controlleraction_session_index', unique: false
       t.index :user_id
     end
+
+    create_table :trackers do |t|
+      t.boolean :active, null: false, default: true
+      t.string :name, null: false
+      t.string :tracker_id
+      t.text :code, null: false
+      t.timestamps null: false
+    end
   end
 end

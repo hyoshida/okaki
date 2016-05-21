@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :create]
     resources :assets
     resources :advertisements
+    resources :trackers
     resource :blog, controller: :blog, only: [:show, :edit, :update]
 
     get :profile, controller: :users
