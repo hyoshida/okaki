@@ -1,3 +1,7 @@
+- ads = Advertisement.recent
+- first_ad = ads.first
+- other_ads = ads - [ads.first]
+
 #categories
   h2
     | カテゴリ
@@ -11,6 +15,12 @@
           = link_to child, class: 'list-group-item child' do
             span.fa.fa-bookmark-o>
             = child.name
+
+hr
+
+- if first_ad
+  .ads
+    = link_to image_tag(first_ad.image_url), first_ad.url, alt: first_ad.title, target: '_blank'
 
 hr
 
@@ -36,8 +46,8 @@ hr
 
 hr
 
-#ads
+.ads
   ul.list-inline
-    - Advertisement.recent.each do |advertisement|
+    - other_ads.each do |advertisement|
       li
         = link_to image_tag(advertisement.image_url), advertisement.url, alt: advertisement.title, target: '_blank'

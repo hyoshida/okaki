@@ -126,11 +126,13 @@ a.btn-next-page {
   padding: 10 50px !important;
 }
 
-#ads ul li {
-  margin-bottom: 10px;
-
+.ads {
   img {
     width: 100%;
+  }
+
+  ul li {
+    margin-bottom: 10px;
   }
 }
 
