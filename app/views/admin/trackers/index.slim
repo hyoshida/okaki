@@ -1,0 +1,41 @@
+.admin-panel
+  .admin-panel-heading
+    ul.pull-right.list-inline
+      li
+        = link_to '新規作成', new_admin_tracker_path, class: 'btn btn-default'
+
+    h1.page-header
+      | トラッキング情報
+      small<
+        | #{@trackers.count} 件
+
+  .admin-panel-body
+    section
+      - if @trackers.empty?
+        | レコードが見つかりませんでした。
+      - else
+        table.table.table-striped
+          thead
+            th
+              = @trackers.klass.human_attribute_name(:active)
+            th
+              = @trackers.klass.human_attribute_name(:name)
+            th
+              = @trackers.klass.human_attribute_name(:updated_at)
+            th
+              = @trackers.klass.human_attribute_name(:created_at)
+          tbody
+            - @trackers.each do |tracker|
+              tr
+                td
+                  - if tracker.active?
+                    | ✔︎
+                td
+                  = link_to tracker.name, [:admin, tracker]
+                  br
+                  small.text-muted
+                    = tracker.tracker_id
+                td
+                  = l tracker.updated_at
+                td
+                  = l tracker.created_at
