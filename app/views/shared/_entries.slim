@@ -24,6 +24,10 @@
                 | 削除
           li
             = l entry.created_at.to_date
+          li
+            = number_with_delimiter entry.views_count
+            small<
+              | views
         ul.list-inline
           li
             = link_to gravatar_tag(user, class: 'img-circle', size: 40), user
