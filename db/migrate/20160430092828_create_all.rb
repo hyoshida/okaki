@@ -52,6 +52,7 @@ class CreateAll < ActiveRecord::Migration
       t.string :title, null: false
       t.text :headline
       t.text :body, null: false
+      t.integer :impressions_count, default: 0
       t.boolean :doruby, null: false, default: false, index: true
 
       t.timestamps null: false
