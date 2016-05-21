@@ -16,7 +16,22 @@
 
   .admin-panel-body
     = render 'form'
+
+    - @user.entries.any?
+      hr
+
+      .container
+        .panel.panel-default
+          .panel-heading
+            | このユーザーの記事
+          .list-group
+            - @user.entries.recent.limit(5).each do |entry|
+              = link_to entry.title, [:admin, entry], class: 'list-group-item'
+          .panel-body.text-center
+            = link_to "すべての記事を見る (#{@user.entries.count})", admin_entries_path(q: { user_id_eq: @user.id })
+
     hr
+
     .panel.panel-danger
       .panel-heading type="button" data-toggle="collapse" data-target="#danger-collapse"
         strong
