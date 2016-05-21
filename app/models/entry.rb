@@ -3,6 +3,8 @@ class Entry < ActiveRecord::Base
 
   friendly_id :slug
 
+  is_impressionable counter_cache: true, unique: :all
+
   SLUG_UNSAFE = /[.!~*';\/#?:@&=+$,\[\] ]/
   SLUG_SEPARATOR = '-'
 
@@ -10,6 +12,7 @@ class Entry < ActiveRecord::Base
   belongs_to :category
 
   scope :recent, -> { order(updated_at: :desc) }
+  scope :monthly_most_viewed, -> { where(created_at: [1.month.ago.to_date..Date.today]).order(impressions_count: :desc, created_at: :desc).limit(5) }
 
   validates :user, presence: true
   validates :title, presence: true, length: { maximum: 255 }
@@ -24,6 +27,10 @@ class Entry < ActiveRecord::Base
       date = Date.new(date_str[0, 4].to_i, date_str[4, 2].to_i, date_str[6, 2].to_i)
       user.entries.find_by!('DATE(created_at) = ? AND slug = ?', date, slug)
     end
+  end
+
+  def views_count
+    impressions_count
   end
 
   private

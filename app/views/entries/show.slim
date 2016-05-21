@@ -27,6 +27,14 @@
 
   hr
 
+  .view_count.text-right
+    span.lead>
+      strong
+        = number_with_delimiter @entry.views_count
+    | views
+
+  hr
+
   #user
     .panel.panel-primary
       .panel-heading

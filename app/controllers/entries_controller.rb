@@ -11,6 +11,7 @@ class EntriesController < ApplicationController
 
   # GET /users/:user_name/entries/1
   def show
+    impressionist(@entry, nil, unique: [:session_hash])
   end
 
   # GET /users/:user_name/entries/new

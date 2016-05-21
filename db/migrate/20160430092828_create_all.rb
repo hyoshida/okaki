@@ -52,6 +52,7 @@ class CreateAll < ActiveRecord::Migration
       t.string :title, null: false
       t.text :headline
       t.text :body, null: false
+      t.integer :impressions_count, default: 0
       t.boolean :doruby, null: false, default: false, index: true
 
       t.timestamps null: false
@@ -85,6 +86,30 @@ class CreateAll < ActiveRecord::Migration
       t.string :file, null: false
       t.string :original_filename
       t.timestamps null: false
+    end
+
+    create_table :impressions do |t|
+      t.string :impressionable_type
+      t.integer :impressionable_id
+      t.integer :user_id
+      t.string :controller_name
+      t.string :action_name
+      t.string :view_name
+      t.string :request_hash
+      t.string :ip_address
+      t.string :session_hash
+      t.text :message
+      t.text :referrer
+      t.timestamps null: false
+
+      t.index [:impressionable_type, :message, :impressionable_id], name: 'impressionable_type_message_index', unique: false, length: { message: 255 }
+      t.index [:impressionable_type, :impressionable_id, :request_hash], name: 'poly_request_index', unique: false
+      t.index [:impressionable_type, :impressionable_id, :ip_address], name: 'poly_ip_index', unique: false
+      t.index [:impressionable_type, :impressionable_id, :session_hash], name: 'poly_session_index', unique: false
+      t.index [:controller_name,:action_name,:request_hash], name: 'controlleraction_request_index', unique: false
+      t.index [:controller_name,:action_name,:ip_address], name: 'controlleraction_ip_index', unique: false
+      t.index [:controller_name,:action_name,:session_hash], name: 'controlleraction_session_index', unique: false
+      t.index :user_id
     end
   end
 end
