@@ -1,6 +1,4 @@
 class EntriesController < ApplicationController
-  impressionist actions: :show
-
   before_action :set_user
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show, :doruby, :doruby_file]
@@ -13,6 +11,7 @@ class EntriesController < ApplicationController
 
   # GET /users/:user_name/entries/1
   def show
+    impressionist(@entry, nil, unique: [:session_hash])
   end
 
   # GET /users/:user_name/entries/new

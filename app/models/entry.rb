@@ -28,6 +28,10 @@ class Entry < ActiveRecord::Base
     end
   end
 
+  def views_count
+    impressionist_count
+  end
+
   private
 
   def generate_slug
