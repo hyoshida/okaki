@@ -3,6 +3,8 @@ class Entry < ActiveRecord::Base
 
   friendly_id :slug
 
+  is_impressionable
+
   SLUG_UNSAFE = /[.!~*';\/#?:@&=+$,\[\] ]/
   SLUG_SEPARATOR = '-'
 

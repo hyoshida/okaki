@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+  impressionist actions: :show
+
   before_action :set_user
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show, :doruby, :doruby_file]

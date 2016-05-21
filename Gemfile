@@ -112,3 +112,6 @@ gem 'acts_as_list'
 
 # Query File Upload features multiple file selection, drag&drop support, progress bars and preview images for jQuery.
 gem 'jquery-fileupload-rails'
+
+# A lightweight plugin that logs impressions per action or manually per model.
+gem 'impressionist'
