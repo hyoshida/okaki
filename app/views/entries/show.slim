@@ -11,6 +11,7 @@
   .title
     h1.page-header
       = title @entry.title
+      - set_meta_tags title: [@entry.category.name, @entry.title] if @entry.category
       - if current_user == @user
         small<
           = link_to 'Edit', edit_user_entry_path(@user, @entry)
