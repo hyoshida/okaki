@@ -39,11 +39,15 @@
 
   hr
 
-  .view_count.text-right
-    span.lead>
-      strong
-        = number_with_delimiter @entry.views_count
-    | views
+  ul.list-inline
+    li.pull-right
+      .view_count.text-right
+        span.lead>
+          strong
+            = number_with_delimiter @entry.views_count
+        | views
+    li
+      = render 'social'
 
   hr
 
