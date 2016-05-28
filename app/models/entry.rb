@@ -12,6 +12,7 @@ class Entry < ActiveRecord::Base
   belongs_to :category
 
   scope :recent, -> { order(updated_at: :desc) }
+  scope :newest, -> { order(created_at: :desc).limit(5) }
   scope :monthly_most_viewed, -> { where(created_at: [1.month.ago.to_date..Date.today]).order(impressions_count: :desc, created_at: :desc).limit(5) }
 
   validates :user, presence: true
