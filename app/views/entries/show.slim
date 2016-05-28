@@ -1,4 +1,4 @@
-#entry
+- content_for :breadcrumb do
   ol.breadcrumb
     li>
       = link_to 'ホーム', root_path
@@ -7,8 +7,9 @@
         li>
           = link_to category.name, category
     li.active
-      = @entry.title.truncate(30)
+      = @entry.title
 
+#entry
   ul.list-inline
     li
       .created_at
