@@ -64,6 +64,13 @@ hr
           .body
             = entry.title
 
+- if Blog.instance.facebook_page_url.present?
+  hr
+
+  .facebook-page-plugin
+    .facebook-page-plugin-body
+      = render 'shared/facebook_page_plugin'
+
 hr
 
 .ads
