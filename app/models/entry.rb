@@ -28,7 +28,7 @@ class Entry < ActiveRecord::Base
       doc.search('pre').each do |pre|
         # Workaround: `lang` can use \w letters. Raise ArgumentError in CodeRay::PluginHost#valudate_id when use not \w letter.
         lang = pre.children.attribute('class').try(:value).to_s.gsub(/[^ \w]/, '_').split(' ').first || :text
-        code = CodeRay.scan(pre.text.strip, lang).div
+        code = CodeRay.scan(pre.inner_html.strip, lang).div
         pre.replace(code)
       end
       doc.to_s.html_safe
