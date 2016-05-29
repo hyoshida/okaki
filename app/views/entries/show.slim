@@ -76,6 +76,14 @@
   hr
 
   .row
+    - if Blog.instance.twitter_uid.present?
+      .col-md-6
+        .follow-social-acount
+          .follow-social-acount-body
+            p
+              | Twitterから最新記事を受け取るならこちら
+            = render 'shared/follow_twitter'
+
     .col-md-6
       .follow-social-acount
         .follow-social-acount-body

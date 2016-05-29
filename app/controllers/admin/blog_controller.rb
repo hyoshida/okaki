@@ -28,7 +28,8 @@ module Admin
         :title,
         :meta_keywords,
         :meta_description,
-        :facebook_page_url
+        :facebook_page_url,
+        :twitter_uid
       )
     end
   end
