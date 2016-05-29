@@ -33,9 +33,12 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
   end
 
+  get '/feed', to: 'home#feed', as: :feed, defaults: { format: 'atom' }
+
   # for DoRuby
   get ':user_name/:date/*slug', to: 'entries#doruby', constraints: { date: /\d{8}/, slug: /[^\/]*/, format: false }
   get ':user_name/files/*filename', to: 'entries#doruby_file', constraints: { filename: /[^\/]*/, format: false }
+  get '/blog/feed_all' => redirect('/feed')
 
   root to: 'home#index'
 end
