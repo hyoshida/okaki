@@ -3,7 +3,11 @@
     .admin-panel-heading
       ul.pull-right.list-inline
         li
+          = link_to 'この記事をみる', user_entry_path(@entry.user, @entry), class: 'btn btn-default', target: '_blank'
+        li.divider
+        li
           = link_to_save
+      ul.pull-right.list-inline
 
       h1.page-header
         ol.breadcrumb
@@ -11,6 +15,8 @@
             = link_to '記事', admin_entries_path
           li.active
             = @entry.title
+            small<
+              = link_to "#{@entry.user.nickname} @#{@entry.user.name}", admin_user_path(@entry.user), class: 'text-muted'
 
   .admin-panel-body
     = render 'form'
