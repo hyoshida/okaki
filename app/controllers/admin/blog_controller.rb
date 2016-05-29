@@ -27,7 +27,8 @@ module Admin
       params.fetch(:blog, {}).permit(
         :title,
         :meta_keywords,
-        :meta_description
+        :meta_description,
+        :facebook_page_url
       )
     end
   end

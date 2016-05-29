@@ -169,3 +169,15 @@ a.btn-next-page {
     }
   }
 }
+
+.facebook-page-plugin {
+  .facebook-page-plugin-body {
+    padding: 5px;
+    text-align: center;
+    border: 3px solid #eee;
+  }
+
+  .fb_iframe_widget {
+    display: block;
+  }
+}

@@ -65,3 +65,13 @@
                 = link_to @user.nickname, @user
             .profile
               = strip_tags @user.profile
+
+  - if Blog.instance.facebook_page_url.present?
+    hr
+
+    .facebook-page-plugin
+      .facebook-page-plugin-heading
+        p
+          | 「いいね！」すると#{Blog.instance.title}の最新記事を受け取ることができます。
+      .facebook-page-plugin-body
+        = render 'shared/facebook_page_plugin'

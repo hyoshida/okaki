@@ -62,6 +62,7 @@ class CreateAll < ActiveRecord::Migration
       t.string :title, null: false
       t.string :meta_keywords
       t.string :meta_description
+      t.string :facebook_page_url
       t.timestamps null: false
     end
 

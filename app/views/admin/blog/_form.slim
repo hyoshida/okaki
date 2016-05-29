@@ -19,5 +19,15 @@
         = f.label :meta_description
         = f.text_field :meta_description
 
+  fieldset
+    .col-md-3
+      legend
+        | ソーシャル
+
+    .col-md-9
+      .form-group
+        = f.label :facebook_page_url
+        = f.text_field :facebook_page_url
+
   .hidden
     = f.submit
