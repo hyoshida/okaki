@@ -38,7 +38,15 @@ html
               span.icon-bar
               span.icon-bar
             .navbar-brand
-              = link_to Blog.instance.title, root_path
+              = link_to root_path do
+                - title_words = Blog.instance.title.underscore.split('_')
+                - title_first_word = title_words.first
+                - title_other_word = (title_words - [title_first_word]).join('_')
+                span
+                  = title_first_word.camelize
+                - if title_other_word
+                  strong
+                    = title_other_word.camelize
           #navbar.navbar-collapse.collapse
             ul.nav.navbar-nav.navbar-right
               li
