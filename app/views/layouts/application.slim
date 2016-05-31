@@ -40,6 +40,15 @@ html
             .navbar-brand
               = link_to Blog.instance.title, root_path
           #navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav.navbar-right
+              li
+                = link_to "#{Blog.instance.title}とは", '#'
+              li
+                = link_to 'お問い合わせ', '#'
+
+      nav.navbar.navbar-inverse
+        .container
+          .navbar-collapse
             ul.nav.navbar-nav
               - Category.roots.each do |category|
                 li

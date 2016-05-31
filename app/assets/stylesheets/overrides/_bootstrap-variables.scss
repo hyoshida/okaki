@@ -4,3 +4,19 @@ $pagination-active-border: $pagination-active-bg;
 $pagination-border: #ccc; // $btn-default-border;
 $pagination-hover-border: $pagination-border;
 $pagination-disabled-border: $pagination-border;
+
+$navbar-default-color: #fff;
+$navbar-default-link-color: $navbar-default-color;
+$navbar-default-link-hover-color: #ddd;
+$navbar-default-brand-color: $navbar-default-link-color;
+$navbar-default-brand-hover-color: darken($navbar-default-brand-color, 10%);
+$navbar-default-bg: #26ADE4;
+$navbar-default-border: darken($navbar-default-bg, 6.5%);
+
+$navbar-inverse-color: #777;
+$navbar-inverse-link-color: $navbar-inverse-color;
+$navbar-inverse-link-hover-color: #333;
+$navbar-inverse-brand-color: $navbar-inverse-link-color;
+$navbar-inverse-brand-hover-color: darken($navbar-inverse-brand-color, 10%);
+$navbar-inverse-bg: #fff;
+$navbar-inverse-border: darken($navbar-inverse-bg, 6.5%);

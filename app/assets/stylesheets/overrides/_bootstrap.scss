@@ -24,13 +24,70 @@ table {
   @extend .table-striped;
 }
 
-.navbar-default .navbar-brand a {
-  &:link,
-  &:visited,
-  &:hover,
-  &:active {
-    color: #777;
-    text-decoration: none;
+.navbar {
+  border-radius: inherit;
+}
+
+.navbar-default {
+  margin-bottom: 0;
+
+  .navbar-brand a {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+
+    &:link,
+    &:visited {
+      color: $navbar-default-link-color;
+    }
+
+    &:hover,
+    &:active {
+      color: $navbar-default-link-hover-color;
+    }
+  }
+}
+
+.navbar-inverse {
+  .navbar-brand a {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+
+    &:link,
+    &:visited {
+      color: $navbar-inverse-link-color;
+    }
+
+    &:hover,
+    &:active {
+      color: $navbar-inverse-link-hover-color;
+    }
+  }
+
+  .navbar-nav {
+    float: none;
+    display: inline-block;
+  }
+
+  .navbar-collapse {
+    text-align: center;
+  }
+
+  ul:not(.navbar-right) > li > a {
+    padding: 15px 30px;
+
+    &:hover,
+    &:active {
+      padding-bottom: 15px - 4px;
+      border-bottom: 4px solid #d1e751;
+    }
   }
 }
 
