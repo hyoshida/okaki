@@ -1,2 +1,4 @@
-- Tracker.active.each do |tracker|
+- trackers = Tracker.active.where(location: location)
+- cache trackers.cache_key do
+  - trackers.each do |tracker|
     = tracker.code.html_safe

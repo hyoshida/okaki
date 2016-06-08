@@ -51,7 +51,8 @@ module Admin
         :active,
         :name,
         :tracker_id,
-        :code
+        :code,
+        :location
       )
     end
   end

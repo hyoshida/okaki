@@ -119,6 +119,7 @@ class CreateAll < ActiveRecord::Migration
       t.string :name, null: false
       t.string :tracker_id
       t.text :code, null: false
+      t.string :location, null: false
       t.timestamps null: false
     end
   end
