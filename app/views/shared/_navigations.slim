@@ -1,0 +1,20 @@
+- page ||= nil
+- per_page ||= nil
+
+- navigations = Navigation.order(:updated_at).active.where(location: location).page(page).per(per_page)
+
+- if navigations.any?
+  - navigations.each do |navigation|
+    li
+      = link_to navigation.name, navigation.url
+- else
+  - case location.to_sym
+  - when :header
+    li
+      = link_to "#{Blog.instance.title}とは", '#'
+    li
+      = link_to 'お問い合わせ', '#'
+  - when :nav
+    - Category.roots.each do |category|
+      li
+        = link_to category.name, category

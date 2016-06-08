@@ -50,18 +50,13 @@ html
                     = title_other_word.camelize
           #navbar.navbar-collapse.collapse
             ul.nav.navbar-nav.navbar-right
-              li
-                = link_to "#{Blog.instance.title}とは", '#'
-              li
-                = link_to 'お問い合わせ', '#'
+              = render 'shared/navigations', location: :header
 
       nav.navbar.navbar-inverse
         .container
           .navbar-collapse
             ul.nav.navbar-nav
-              - Category.roots.each do |category|
-                li
-                  = link_to category.name, category
+              = render 'shared/navigations', location: :nav
             - if user_signed_in?
               ul.nav.navbar-nav.navbar-right
                 li
@@ -83,6 +78,15 @@ html
             = render 'shared/sidebar'
 
       footer
+        .container
+          .row
+            - 4.times.each do |index|
+              .col-md-3
+                ul.list-unstyled
+                  = render 'shared/navigations', location: :footer, page: index + 1, per_page: 4
+
+        hr
+
         .container
           p.text-muted
             | Copyright (c) 2016

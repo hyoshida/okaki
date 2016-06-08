@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :assets
     resources :advertisements
     resources :trackers
+    resources :navigations
     resource :blog, controller: :blog, only: [:show, :edit, :update]
 
     get :profile, controller: :users
