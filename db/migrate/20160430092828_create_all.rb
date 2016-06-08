@@ -115,11 +115,11 @@ class CreateAll < ActiveRecord::Migration
     end
 
     create_table :trackers do |t|
-      t.boolean :active, null: false, default: true
+      t.boolean :active, null: false, default: true, index: true
       t.string :name, null: false
       t.string :tracker_id
       t.text :code, null: false
-      t.string :location, null: false
+      t.string :location, null: false, index: true
       t.timestamps null: false
     end
 
