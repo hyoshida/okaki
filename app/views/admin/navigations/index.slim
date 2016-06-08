@@ -1,0 +1,60 @@
+.admin-panel
+  .admin-panel-heading
+    ul.pull-right.list-inline
+      li
+        = link_to '新規作成', new_admin_navigation_path, class: 'btn btn-default'
+
+    h1.page-header
+      | ナビゲーション
+      small<
+        | #{@navigations.count} 件
+
+  .admin-panel-body
+    section
+      - @navigations.klass.location.values.each do |location|
+        h3
+          = location.humanize
+          span<
+            = link_to '追加', new_admin_navigation_path(location: location), class: 'btn btn-default'
+
+        - navigations = @navigations.where(location: location)
+        - if navigations.empty?
+          | レコードが見つかりませんでした。
+        - else
+          table.table.table-striped
+            thead
+              th
+                = navigations.klass.human_attribute_name(:active)
+              th
+                = navigations.klass.human_attribute_name(:name)
+              th
+                = navigations.klass.human_attribute_name(:updated_at)
+              th
+                = navigations.klass.human_attribute_name(:created_at)
+              th
+                = navigations.klass.human_attribute_name(:position)
+            tbody
+              - navigations.each do |navigation|
+                tr
+                  td
+                    - if navigation.active?
+                      | ✔︎
+                  td
+                    = link_to navigation.name, [:admin, navigation]
+                    br
+                    small.text-muted
+                      = navigation.url
+                  td
+                    = l navigation.updated_at
+                  td
+                    = l navigation.created_at
+                  td
+                    .btn-group
+                      = link_to move_to_bottom_admin_navigation_path(navigation), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-double-down
+                      = link_to move_lower_admin_navigation_path(navigation), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-down
+                      = link_to move_higher_admin_navigation_path(navigation), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-up
+                      = link_to move_to_top_admin_navigation_path(navigation), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-double-up

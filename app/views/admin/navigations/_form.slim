@@ -1,0 +1,29 @@
+= form_for [:admin, @navigation] do |f|
+  = error_messages_for @navigation
+
+  fieldset
+    .col-md-3
+      legend
+        | 一般
+
+    .col-md-9
+      .form-group
+        .checkbox
+          = f.label :active do
+            = f.check_box :active
+            = f.object.class.human_attribute_name(:active)
+
+      .form-group
+        = f.label :name
+        = f.text_field :name
+
+      .form-group
+        = f.label :url
+        = f.text_field :url
+
+      .form-group
+        = f.label :location
+        = f.select :location, f.object.class.location.options
+
+  .hidden
+    = f.submit

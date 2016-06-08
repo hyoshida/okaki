@@ -46,6 +46,11 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
       icon 'area-chart'
     end
 
+    item 'Navigations' do
+      link controller.admin_navigations_path
+      icon 'link'
+    end
+
     divider
 
     item 'Settings' do

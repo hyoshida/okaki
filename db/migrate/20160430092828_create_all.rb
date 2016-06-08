@@ -122,5 +122,14 @@ class CreateAll < ActiveRecord::Migration
       t.string :location, null: false
       t.timestamps null: false
     end
+
+    create_table :navigations do |t|
+      t.boolean :active, null: false, default: true, index: true
+      t.string :name, null: false
+      t.string :url, null: false
+      t.string :location, null: false, index: true
+      t.integer :position
+      t.timestamps null: false
+    end
   end
 end
