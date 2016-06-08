@@ -51,7 +51,7 @@ class EntriesController < ApplicationController
 
   def doruby
     @entry = Entry.find_by_permalink!(@user, params[:date], params[:slug])
-    redirect_to [@user, @entry]
+    redirect_to [@user, @entry], status: :moved_permanently
   end
 
   def doruby_file
