@@ -115,3 +115,6 @@ gem 'jquery-fileupload-rails'
 
 # A lightweight plugin that logs impressions per action or manually per model.
 gem 'impressionist'
+
+# Enumerated attributes with I18n and ActiveRecord/Mongoid/MongoMapper/Sequel support
+gem 'enumerize'
