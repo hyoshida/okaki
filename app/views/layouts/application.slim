@@ -10,85 +10,24 @@ html
     = render 'shared/trackers', location: :head
 
   body data-page="#{page_name}"
-    #fb-root
-    javascript:
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.6";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-
     = render 'shared/trackers', location: :after_opening_body
+    = render 'shared/facebook_sdk'
 
     - if editor_mode?
       .container-fluid
         main
-          p#notice
-            = notice
+          = render 'shared/notifier'
           = yield
     - else
-      nav.navbar.navbar-default
-        .container
-          .navbar-header
-            button.navbar-toggle.collapsed type="button" class="" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"
-              span.sr-only
-                | Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            .navbar-brand
-              = link_to root_path do
-                - title_words = Blog.instance.title.underscore.split('_')
-                - title_first_word = title_words.first
-                - title_other_word = (title_words - [title_first_word]).join('_')
-                span
-                  = title_first_word.camelize
-                - if title_other_word
-                  strong
-                    = title_other_word.camelize
-          #navbar.navbar-collapse.collapse
-            ul.nav.navbar-nav.navbar-right
-              = render 'shared/navigations', location: :header
-
-      nav.navbar.navbar-inverse
-        .container
-          .navbar-collapse
-            ul.nav.navbar-nav
-              = render 'shared/navigations', location: :nav
-            - if user_signed_in?
-              ul.nav.navbar-nav.navbar-right
-                li
-                  = link_to new_user_entry_path(current_user), class: 'btn-new-entry' do
-                    i.fa.fa-pencil>
-                    | 記事を書く
-
+      = render 'shared/header'
       .container.with-footer
         = yield :breadcrumb
-
         .row
           main.col-md-8
-            p#notice
-              = notice
-
+            = render 'shared/notifier'
             = yield
-
           aside.col-md-4
             = render 'shared/sidebar'
-
-      footer
-        .container
-          .row
-            - 4.times.each do |index|
-              .col-md-3
-                ul.list-unstyled
-                  = render 'shared/navigations', location: :footer, page: index + 1, per_page: 4
-
-        hr
-
-        .container
-          p.text-muted
-            | Copyright (c) 2016
+      = render 'shared/footer'
 
     = render 'shared/trackers', location: :before_closing_body
