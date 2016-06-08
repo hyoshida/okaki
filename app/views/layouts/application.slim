@@ -10,15 +10,14 @@ html
     = render 'shared/trackers', location: :head
 
   body data-page="#{page_name}"
-    = render 'shared/trackers', location: :after_opening_body
-    = render 'shared/facebook_sdk'
-
     - if editor_mode?
       .container-fluid
         main
           = render 'shared/notifier'
           = yield
     - else
+      = render 'shared/trackers', location: :after_opening_body
+      = render 'shared/facebook_sdk'
       = render 'shared/header'
       .container.with-footer
         = yield :breadcrumb
@@ -29,5 +28,4 @@ html
           aside.col-md-4
             = render 'shared/sidebar'
       = render 'shared/footer'
-
-    = render 'shared/trackers', location: :before_closing_body
+      = render 'shared/trackers', location: :before_closing_body
