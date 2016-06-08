@@ -1,9 +1,9 @@
 module Admin
   class NavigationsController < Admin::ApplicationController
-    before_action :set_navigation, only: [:show, :edit, :update, :destroy]
+    before_action :set_navigation, only: [:show, :edit, :update, :destroy, :move_lower, :move_higher, :move_to_bottom, :move_to_top]
 
     def index
-      @navigations = Navigation.by_newest
+      @navigations = Navigation.all
     end
 
     def show
@@ -38,6 +38,26 @@ module Admin
     def destroy
       @navigation.destroy
       redirect_to admin_navigations_url, notice: 'Navigation was successfully destroyed.'
+    end
+
+    def move_lower
+      @navigation.move_lower
+      redirect_to admin_navigations_url, notice: 'Navigation was successfully moved.'
+    end
+
+    def move_higher
+      @navigation.move_higher
+      redirect_to admin_navigations_url, notice: 'Navigation was successfully moved.'
+    end
+
+    def move_to_bottom
+      @navigation.move_to_bottom
+      redirect_to admin_navigations_url, notice: 'Navigation was successfully moved.'
+    end
+
+    def move_to_top
+      @navigation.move_to_top
+      redirect_to admin_navigations_url, notice: 'Navigation was successfully moved.'
     end
 
     private

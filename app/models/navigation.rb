@@ -8,6 +8,10 @@ class Navigation < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :by_newest, -> { reorder(created_at: :desc) }
 
+  default_scope -> { order(:position) }
+
+  acts_as_list scope: [:location]
+
   enumerize :location, in: %i(
     header
     nav

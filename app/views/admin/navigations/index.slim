@@ -31,6 +31,8 @@
                 = navigations.klass.human_attribute_name(:updated_at)
               th
                 = navigations.klass.human_attribute_name(:created_at)
+              th
+                = navigations.klass.human_attribute_name(:position)
             tbody
               - navigations.each do |navigation|
                 tr
@@ -46,3 +48,13 @@
                     = l navigation.updated_at
                   td
                     = l navigation.created_at
+                  td
+                    .btn-group
+                      = link_to move_to_bottom_admin_navigation_path(navigation), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-double-down
+                      = link_to move_lower_admin_navigation_path(navigation), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-down
+                      = link_to move_higher_admin_navigation_path(navigation), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-up
+                      = link_to move_to_top_admin_navigation_path(navigation), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-double-up
