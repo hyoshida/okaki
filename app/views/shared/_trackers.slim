@@ -1,2 +1,2 @@
-- Tracker.active.each do |tracker|
-    = tracker.code.html_safe
+- Tracker.active.where(location: location).each do |tracker|
+  = tracker.code.html_safe

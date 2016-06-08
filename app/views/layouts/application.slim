@@ -7,6 +7,7 @@ html
     = auto_discovery_link_tag :atom, feed_path
     = auto_discovery_link_tag :rss, feed_path(format: :rss)
     = csrf_meta_tags
+    = render 'shared/trackers', location: :head
 
   body data-page="#{page_name}"
     #fb-root
@@ -19,7 +20,7 @@ html
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
 
-    = render 'shared/trackers'
+    = render 'shared/trackers', location: :after_opening_body
 
     - if editor_mode?
       .container-fluid
@@ -85,3 +86,5 @@ html
         .container
           p.text-muted
             | Copyright (c) 2016
+
+    = render 'shared/trackers', location: :before_closing_body
