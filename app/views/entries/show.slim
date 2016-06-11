@@ -91,7 +91,7 @@
             | Feedlyから最新記事を受け取るならこちら
           = render 'shared/follow_feedly'
 
-  - recommends = Recommend.where(category: @entry.category.root)
+  - recommends = Recommend.where(category: @entry.category.try(:root))
   - if recommends.any?
     hr
 
