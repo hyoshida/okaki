@@ -1,0 +1,19 @@
+= form_for [:admin, @recommend] do |f|
+  = error_messages_for @recommend
+
+  fieldset
+    .col-md-3
+      legend
+        | 一般
+
+    .col-md-9
+      .form-group
+        = f.label :category_id
+        = f.collection_select :category_id, Category.roots, :id, :name
+
+      .form-group
+        = f.label :entry_id
+        = f.collection_select :entry_id, [@recommend.entry].compact, :id, :title, {}, class: 'select2 ajax', data: { source: admin_entries_path, term: :title_cont_all }
+
+  .hidden
+    = f.submit

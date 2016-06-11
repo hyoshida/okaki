@@ -1,10 +1,16 @@
 module Admin
   class EntriesController < Admin::ApplicationController
     before_action :set_entry, only: [:show, :edit, :update, :destroy]
+    before_action :parse_keywords, only: :index
 
     def index
       @q = Entry.ransack(params[:q])
       @entries = @q.result.order(created_at: :desc).page(params[:page]).all
+
+      respond_to do |format|
+        format.html
+        format.json { render json: @entries } # for select2
+      end
     end
 
     def show
@@ -56,6 +62,14 @@ module Admin
         :headline,
         :body
       )
+    end
+
+    # Based on https://github.com/activerecord-hackery/ransack/issues/218#issuecomment-16504630
+    def parse_keywords
+      return unless params[:q]
+      keywords = params[:q].delete(:title_cont_all)
+      return if keywords.blank?
+      params[:q][:groupings] = keywords.split(' ').map { |keyword| { title_cont: keyword } }
     end
   end
 end

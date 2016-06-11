@@ -118,3 +118,6 @@ gem 'impressionist'
 
 # Enumerated attributes with I18n and ActiveRecord/Mongoid/MongoMapper/Sequel support
 gem 'enumerize'
+
+# Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.
+gem 'select2-rails'

@@ -90,3 +90,28 @@
           p
             | Feedlyから最新記事を受け取るならこちら
           = render 'shared/follow_feedly'
+
+  - recommends = Recommend.where(category: @entry.category.root)
+  - if recommends.any?
+    hr
+
+    #recommends
+      .panel.panel-default
+        .panel-heading
+          .fa.fa-star<
+          | おすすめの記事
+        .list-group
+          - recommends.each do |recommend|
+            - entry = recommend.entry
+            = link_to [entry.user, entry], class: 'list-group-item' do
+              .heading
+                ul.pull-right.list-inline
+                  li
+                    = number_with_delimiter entry.views_count
+                    small<
+                      | views
+                ul.list-inline
+                  li
+                    = l entry.created_at.to_date
+              .body
+                = entry.title
