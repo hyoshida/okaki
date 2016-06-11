@@ -26,6 +26,7 @@
               th
                 = recommends.klass.human_attribute_name(:entry_id)
               th
+              th
                 = recommends.klass.human_attribute_name(:updated_at)
               th
                 = recommends.klass.human_attribute_name(:created_at)
@@ -36,6 +37,12 @@
                 tr
                   td
                     = link_to recommend.title, [:admin, recommend]
+                  td
+                    = link_to '編集', [:admin, recommend.entry]
+                    span<>
+                      | |
+                    = link_to 'プレビュー', [recommend.entry.user, recommend.entry], target: '_blank'
+
                   td
                     = l recommend.updated_at
                   td
