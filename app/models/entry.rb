@@ -68,6 +68,11 @@ class Entry < ActiveRecord::Base
     impressions_count
   end
 
+  # for select2
+  def as_json(_options = {})
+    { id: id, text: title }
+  end
+
   private
 
   def generate_slug

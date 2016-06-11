@@ -13,7 +13,7 @@
 
       .form-group
         = f.label :entry_id
-        = f.text_field :entry_id
+        = f.collection_select :entry_id, [@recommend.entry].compact, :id, :title, {}, class: 'select2 ajax', data: { source: admin_entries_path, term: :title_cont_all }
 
   .hidden
     = f.submit
