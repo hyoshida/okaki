@@ -160,7 +160,7 @@ a.btn-next-page {
   }
 }
 
-#recommend, #newest {
+#popular, #newest, #recommends {
   font-weight: bold;
 
   .panel-heading {
@@ -169,7 +169,15 @@ a.btn-next-page {
     .fa-heart {
       color: red;
     }
+
+    .fa-star {
+      color: orange;
+    }
   }
+}
+
+#recommends .body {
+  font-size: large;
 }
 
 .facebook-page-plugin {
