@@ -1,0 +1,52 @@
+.admin-panel
+  .admin-panel-heading
+    ul.pull-right.list-inline
+      li
+        = link_to '新規作成', new_admin_recommend_path, class: 'btn btn-default'
+
+    h1.page-header
+      | おすすめ
+      small<
+        | #{@recommends.count} 件
+
+  .admin-panel-body
+    section
+      - Category.roots.each do |category|
+        h3
+          = category.name
+          span<
+            = link_to '追加', new_admin_recommend_path(category_id: category), class: 'btn btn-default'
+
+        - recommends = @recommends.where(category_id: category)
+        - if recommends.empty?
+          | レコードが見つかりませんでした。
+        - else
+          table.table.table-striped
+            thead
+              th
+                = recommends.klass.human_attribute_name(:entry_id)
+              th
+                = recommends.klass.human_attribute_name(:updated_at)
+              th
+                = recommends.klass.human_attribute_name(:created_at)
+              th
+                = recommends.klass.human_attribute_name(:position)
+            tbody
+              - recommends.each do |recommend|
+                tr
+                  td
+                    = link_to recommend.title, [:admin, recommend]
+                  td
+                    = l recommend.updated_at
+                  td
+                    = l recommend.created_at
+                  td
+                    .btn-group
+                      = link_to move_to_bottom_admin_recommend_path(recommend), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-double-down
+                      = link_to move_lower_admin_recommend_path(recommend), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-down
+                      = link_to move_higher_admin_recommend_path(recommend), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-up
+                      = link_to move_to_top_admin_recommend_path(recommend), class: 'btn btn-default', method: :post do
+                        span.fa.fa-angle-double-up

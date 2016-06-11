@@ -51,6 +51,11 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
       icon 'link'
     end
 
+    item 'Recommends' do
+      link controller.admin_recommends_path
+      icon 'star'
+    end
+
     divider
 
     item 'Settings' do

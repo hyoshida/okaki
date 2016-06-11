@@ -131,5 +131,12 @@ class CreateAll < ActiveRecord::Migration
       t.integer :position
       t.timestamps null: false
     end
+
+    create_table :recommends do |t|
+      t.integer :category_id, null: false
+      t.integer :entry_id, null: false
+      t.integer :position
+      t.timestamps null: false
+    end
   end
 end

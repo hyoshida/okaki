@@ -34,6 +34,14 @@ Rails.application.routes.draw do
         post :move_to_top
       end
     end
+    resources :recommends do
+      member do
+        post :move_lower
+        post :move_higher
+        post :move_to_bottom
+        post :move_to_top
+      end
+    end
     resource :blog, controller: :blog, only: [:show, :edit, :update]
 
     get :profile, controller: :users

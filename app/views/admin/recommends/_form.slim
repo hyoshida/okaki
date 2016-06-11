@@ -1,0 +1,19 @@
+= form_for [:admin, @recommend] do |f|
+  = error_messages_for @recommend
+
+  fieldset
+    .col-md-3
+      legend
+        | 一般
+
+    .col-md-9
+      .form-group
+        = f.label :category_id
+        = f.collection_select :category_id, Category.roots, :id, :name
+
+      .form-group
+        = f.label :entry_id
+        = f.text_field :entry_id
+
+  .hidden
+    = f.submit
