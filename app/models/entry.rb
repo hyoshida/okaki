@@ -12,6 +12,7 @@ class Entry < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
+  has_many :recommends, dependent: :destroy
 
   scope :recent, -> { order(updated_at: :desc) }
   scope :newest, -> { order(created_at: :desc).limit(5) }
