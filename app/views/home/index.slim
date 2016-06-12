@@ -7,9 +7,29 @@
     - entries = Entry.where(category_id: category.subtree_ids).most_viewed.limit(4)
     - if entries.any?
       h2
-        = category.name
+        | #{category.name}の人気記事
 
-      = render 'shared/entries', entries: entries
-
-      .text-center
-        = link_to "#{category.name}の記事をもっとみる", category, class: 'btn-read-more', width: '100%'
+      ul.list-inline.entries
+        - entries.each do |entry|
+          li
+            .panel.panel-entry
+              .panel-heading
+                h3
+                  = entry.views_count
+                  small<
+                    | views
+              .panel-body
+                h4
+                  = link_to entry.title, [entry.user, entry]
+                p
+                  = entry.headline
+                - if entry.image?
+                  .crop
+                    = image_tag entry.image_url, class: 'img-responsive'
+              .panel-footer
+                span
+                  = link_to entry.category.name, entry.category, class: 'label label-default'
+                small<
+                  = l entry.created_at.to_date
+        li.read-more
+          = link_to "#{category.name}の記事をもっとみる", category, class: 'btn-read-more', width: '100%'
