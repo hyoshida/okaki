@@ -128,6 +128,17 @@ a.btn-next-page {
   padding: 10 50px !important;
 }
 
+a.btn-read-more {
+  @extend .btn;
+  @extend .btn-default;
+  @extend .btn-lg;
+
+  padding: 15px 10px !important;
+  width: 100%;
+  font-weight: bold;
+  color: #666;
+}
+
 .ads {
   img {
     width: 100%;

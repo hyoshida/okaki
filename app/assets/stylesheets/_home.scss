@@ -1,3 +1,67 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#home {
+  h3 {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin-bottom: 10px;
+
+    a {
+      color: #444;
+    }
+  }
+
+  ul.entries {
+    margin-left: 0;
+    margin-bottom: 50px;
+    padding-left: 2px;
+    background-image: image-url('panel-entry-border.png');
+    background-repeat: repeat;
+    background-position: left top;
+    background-size: 187px 8px;
+
+    li {
+      width: 184px;
+      vertical-align: top;
+    }
+
+    li.read-more {
+      margin-top: -21px;
+      padding-top: 7px;
+      width: 100%;
+      border-top: 1px solid #eee;
+      border-right: 2px solid #eee;
+      background-color: #fff;
+    }
+  }
+
+  .panel.panel-entry {
+    border: none;
+    @include box-shadow(none);
+
+    .panel-heading {
+      border-top: 4px solid #2fb1e5;
+      border-bottom: 1px solid #eee;
+      border-radius: none;
+
+      color: #2fb1e5;
+
+      small {
+        color: #2fb1e5;
+      }
+    }
+
+    .panel-body {
+      .crop {
+        height: 140px;
+        overflow: hidden;
+      }
+    }
+
+    .panel-footer {
+      background: inherit;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}

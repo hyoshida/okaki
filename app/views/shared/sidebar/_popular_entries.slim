@@ -1,0 +1,19 @@
+#popular
+  .panel.panel-default
+    .panel-heading
+      .fa.fa-heart<
+      | 人気の記事
+    .list-group
+      - Entry.monthly_most_viewed.each do |entry|
+        = link_to [entry.user, entry], class: 'list-group-item' do
+          .heading
+            ul.pull-right.list-inline
+              li
+                = number_with_delimiter entry.views_count
+                small<
+                  | views
+            ul.list-inline
+              li
+                = l entry.created_at.to_date
+          .body
+            = entry.title
