@@ -54,7 +54,7 @@ class CreateAll < ActiveRecord::Migration
       t.text :body, null: false
       t.integer :impressions_count, default: 0
       t.boolean :doruby, null: false, default: false, index: true
-
+      t.string :image
       t.timestamps null: false
     end
 

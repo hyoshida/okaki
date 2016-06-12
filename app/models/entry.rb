@@ -5,6 +5,8 @@ class Entry < ActiveRecord::Base
 
   is_impressionable counter_cache: true, unique: :all
 
+  mount_uploader :image, AssetsUploader
+
   SLUG_UNSAFE = /[.!~*';\/#?:@&=+$,\[\] ]/
   SLUG_SEPARATOR = '-'
 
@@ -66,6 +68,14 @@ class Entry < ActiveRecord::Base
 
   def views_count
     impressions_count
+  end
+
+  def eye_catch_image_url
+    if image?
+      image_url
+    else
+      'noimage.png'
+    end
   end
 
   # for select2

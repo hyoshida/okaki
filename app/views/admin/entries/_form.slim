@@ -8,6 +8,12 @@
 
     .col-md-9
       .form-group
+        .checkbox
+          = f.label :draft do
+            = f.check_box :draft
+            = f.object.class.human_attribute_name(:draft)
+
+      .form-group
         = f.label :title
         = f.text_field :title
 
@@ -24,10 +30,19 @@
         = f.text_area :body, rows: 10
 
       .form-group
-        .checkbox
-          = f.label :draft do
-            = f.check_box :draft
-            = f.object.class.human_attribute_name(:draft)
+        = f.label :image
+        p
+          = f.file_field :image
+
+        - if f.object.image?
+          p.thumbnail
+            = image_tag f.object.image_url
+            - if f.object.persisted?
+              label.remove
+                span>
+                  = f.check_box :remove_image
+                span>
+                  | 削除する
 
     .col-md-3
       legend

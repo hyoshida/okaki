@@ -31,6 +31,11 @@
     .alert.alert-warning
       | この記事は公開から１年以上が経過しています。情報が古い可能性がありますのでご注意ください。
 
+  - if @entry.image?
+    .image
+      = image_tag @entry.image_url, class: 'img-responsive'
+    hr
+
   .body class="#{'doruby' if @entry.doruby?}"
     = @entry.content
 
