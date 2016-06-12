@@ -70,6 +70,14 @@ class Entry < ActiveRecord::Base
     impressions_count
   end
 
+  def eye_catch_image_url
+    if image?
+      image_url
+    else
+      'noimage.png'
+    end
+  end
+
   # for select2
   def as_json(_options = {})
     { id: id, text: title }

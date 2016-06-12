@@ -84,11 +84,31 @@
     }
   }
 
-  .media-body {
-    padding-bottom: 10px;
+  .media-left {
+    .crop {
+      height: 150px;
+      overflow: hidden;
+
+      .image {
+        display: block;
+        width: 200px;
+        height: 150px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      img {
+        width: 200px;
+      }
+    }
+
+    padding-right: 30px;
   }
 
   .media-footer {
+    padding-top: 10px;
+
     ul li {
       line-height: 40px;
       font-size: 120%;

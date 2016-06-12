@@ -3,36 +3,38 @@
     - user = entry.user
 
     .media
-      / .media-left
-        = link_to entry.image, [user, entry]
+      .media-left
+        .crop
+          = link_to [user, entry] do
+            span class="image" style="background-image:url('#{image_url(entry.eye_catch_image_url)}');"
 
       .media-body
         h4.media-heading
           = link_to entry.title, [user, entry]
         = strip_tags entry.headline
 
-      .media-footer
-        ul.pull-right.list-inline
-          - if current_user == user
+        .media-footer
+          ul.pull-right.list-inline
+            - if current_user == user
+              li
+                = link_to edit_user_entry_path(user, entry), class: 'btn btn-default' do
+                  i.fa.fa-edit>
+                  | 編集
+              li
+                = link_to [user, entry], data: { confirm: '本当に削除してもよろしいですか？' }, method: :delete, class: 'btn btn-danger' do
+                  i.fa.fa-trash>
+                  | 削除
             li
-              = link_to edit_user_entry_path(user, entry), class: 'btn btn-default' do
-                i.fa.fa-edit>
-                | 編集
+              = l entry.created_at.to_date
             li
-              = link_to [user, entry], data: { confirm: '本当に削除してもよろしいですか？' }, method: :delete, class: 'btn btn-danger' do
-                i.fa.fa-trash>
-                | 削除
-          li
-            = l entry.created_at.to_date
-          li
-            = number_with_delimiter entry.views_count
-            small<
-              | views
-        ul.list-inline
-          li
-            = link_to gravatar_tag(user, class: 'img-circle', size: 40), user
-          li
-            = link_to user.nickname, user
+              = number_with_delimiter entry.views_count
+              small<
+                | views
+          ul.list-inline
+            li
+              = link_to gravatar_tag(user, class: 'img-circle', size: 40), user
+            li
+              = link_to user.nickname, user
 
 .pagination-group.text-center
   .pagination-group-next
