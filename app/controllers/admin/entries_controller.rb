@@ -60,7 +60,9 @@ module Admin
         :slug,
         :title,
         :headline,
-        :body
+        :body,
+        :image,
+        :remove_image
       )
     end
 
