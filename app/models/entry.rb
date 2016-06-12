@@ -5,6 +5,8 @@ class Entry < ActiveRecord::Base
 
   is_impressionable counter_cache: true, unique: :all
 
+  mount_uploader :image, AssetsUploader
+
   SLUG_UNSAFE = /[.!~*';\/#?:@&=+$,\[\] ]/
   SLUG_SEPARATOR = '-'
 
