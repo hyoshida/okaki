@@ -1,6 +1,6 @@
 module Admin
   class AdvertisementsController < Admin::ApplicationController
-    before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
+    before_action :set_advertisement, only: [:show, :edit, :update, :destroy, :move_lower, :move_higher, :move_to_bottom, :move_to_top]
 
     def index
       @q = Advertisement.ransack(params[:q])
@@ -39,6 +39,26 @@ module Admin
     def destroy
       @advertisement.destroy
       redirect_to admin_advertisements_url, notice: 'Advertisement was successfully destroyed.'
+    end
+
+    def move_lower
+      @advertisement.move_lower
+      redirect_to admin_advertisements_url, notice: 'Advertisement was successfully moved.'
+    end
+
+    def move_higher
+      @advertisement.move_higher
+      redirect_to admin_advertisements_url, notice: 'Advertisement was successfully moved.'
+    end
+
+    def move_to_bottom
+      @advertisement.move_to_bottom
+      redirect_to admin_advertisements_url, notice: 'Advertisement was successfully moved.'
+    end
+
+    def move_to_top
+      @advertisement.move_to_top
+      redirect_to admin_advertisements_url, notice: 'Advertisement was successfully moved.'
     end
 
     private

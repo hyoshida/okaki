@@ -41,6 +41,8 @@
               = sort_link [:admin, @q], :updated_at
             th
               = sort_link [:admin, @q], :created_at
+            th
+              = sort_link [:admin, @q], :position
           tbody
             - @advertisements.each do |advertisement|
               tr
@@ -58,6 +60,16 @@
                   = l advertisement.updated_at
                 td
                   = l advertisement.created_at
+                td
+                  .btn-group
+                    = link_to move_to_bottom_admin_advertisement_path(advertisement), class: 'btn btn-default', method: :post do
+                      span.fa.fa-angle-double-down
+                    = link_to move_lower_admin_advertisement_path(advertisement), class: 'btn btn-default', method: :post do
+                      span.fa.fa-angle-down
+                    = link_to move_higher_admin_advertisement_path(advertisement), class: 'btn btn-default', method: :post do
+                      span.fa.fa-angle-up
+                    = link_to move_to_top_admin_advertisement_path(advertisement), class: 'btn btn-default', method: :post do
+                      span.fa.fa-angle-double-up
 
         .text-center
           index= paginate @advertisements

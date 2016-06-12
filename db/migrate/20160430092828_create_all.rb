@@ -72,6 +72,7 @@ class CreateAll < ActiveRecord::Migration
       t.string :title
       t.string :url, null: false
       t.string :image, null: false
+      t.integer :position
       t.timestamps null: false
     end
 

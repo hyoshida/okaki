@@ -24,8 +24,14 @@ Rails.application.routes.draw do
     resources :entries
     resources :categories, only: [:index, :create]
     resources :assets
-    resources :advertisements
-    resources :trackers
+    resources :advertisements do
+      member do
+        post :move_lower
+        post :move_higher
+        post :move_to_bottom
+        post :move_to_top
+      end
+    end
     resources :navigations do
       member do
         post :move_lower
@@ -42,6 +48,7 @@ Rails.application.routes.draw do
         post :move_to_top
       end
     end
+    resources :trackers
     resource :blog, controller: :blog, only: [:show, :edit, :update]
 
     get :profile, controller: :users

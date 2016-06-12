@@ -41,11 +41,6 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
       icon 'bullhorn'
     end
 
-    item 'Trackers' do
-      link controller.admin_trackers_path
-      icon 'area-chart'
-    end
-
     item 'Navigations' do
       link controller.admin_navigations_path
       icon 'link'
@@ -57,6 +52,11 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
     end
 
     divider
+
+    item 'Trackers' do
+      link controller.admin_trackers_path
+      icon 'area-chart'
+    end
 
     item 'Settings' do
       link controller.admin_blog_path
