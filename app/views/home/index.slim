@@ -1,1 +1,15 @@
-= render 'shared/entries', entries: @entries
+#home
+  - entry = Entry.most_viewed.first
+  - if entry
+    = render 'shared/entries', entries: [entry]
+
+  - Category.roots.each do |category|
+    - entries = Entry.where(category_id: category.subtree_ids).most_viewed.limit(4)
+    - if entries.any?
+      h2
+        = category.name
+
+      = render 'shared/entries', entries: entries
+
+      .text-center
+        = link_to "#{category.name}の記事をもっとみる", category, class: 'btn-read-more', width: '100%'

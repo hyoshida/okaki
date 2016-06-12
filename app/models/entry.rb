@@ -15,7 +15,8 @@ class Entry < ActiveRecord::Base
 
   scope :recent, -> { order(updated_at: :desc) }
   scope :newest, -> { order(created_at: :desc).limit(5) }
-  scope :monthly_most_viewed, -> { where(created_at: [1.month.ago.to_date..Date.today]).order(impressions_count: :desc, created_at: :desc).limit(5) }
+  scope :most_viewed, -> { order(impressions_count: :desc, created_at: :desc) }
+  scope :monthly_most_viewed, -> { most_viewed.where(created_at: [1.month.ago.to_date..Date.today]).limit(5) }
 
   validates :user, presence: true
   validates :title, presence: true, length: { maximum: 255 }
