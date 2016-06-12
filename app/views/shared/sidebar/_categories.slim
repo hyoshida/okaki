@@ -1,0 +1,15 @@
+#categories
+  h2
+    | カテゴリ
+
+  .list-group
+    - Category.roots.each do |category|
+      = link_to category.name, category, class: 'list-group-item'
+
+      - if category.children.any?
+        - category.children.each do |child|
+          = link_to child, class: 'list-group-item child' do
+            span.fa.fa-bookmark-o>
+            = child.name
+
+hr
