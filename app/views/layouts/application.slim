@@ -20,11 +20,12 @@ html
     - when profile_page?
       = render 'shared/header'
       .container
-        main.col-md-8
-          = render 'shared/notifier'
-          = yield
-        aside.col-md-4
-          = render 'shared/profile_card', user: current_user
+        .row
+          main.col-md-8
+            = render 'shared/notifier'
+            = yield
+          aside.col-md-4
+            = render 'shared/profile_card', user: current_user
     - when editor_mode?
       .container-fluid
         main
