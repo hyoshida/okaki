@@ -10,22 +10,29 @@ html
     = render 'shared/trackers', location: :head
 
   body data-page="#{page_name}"
-    - if editor_mode?
-      .container-fluid
-        main
-          = render 'shared/notifier'
-          = yield
-    - else
-      = render 'shared/trackers', location: :after_opening_body
-      = render 'shared/facebook_sdk'
-      = render 'shared/header'
-      .container.with-footer
-        = yield :breadcrumb
-        .row
-          main.col-md-8
+    - if sign_in_page? || profile_page?
+        = render 'shared/header'
+        .container
+          main
             = render 'shared/notifier'
             = yield
-          aside.col-md-4
-            = render 'shared/sidebar'
-      = render 'shared/footer'
-      = render 'shared/trackers', location: :before_closing_body
+    - else
+      - if editor_mode?
+        .container-fluid
+          main
+            = render 'shared/notifier'
+            = yield
+      - else
+        = render 'shared/trackers', location: :after_opening_body
+        = render 'shared/facebook_sdk'
+        = render 'shared/header'
+        .container.with-footer
+          = yield :breadcrumb
+          .row
+            main.col-md-8
+              = render 'shared/notifier'
+              = yield
+            aside.col-md-4
+              = render 'shared/sidebar'
+        = render 'shared/footer'
+        = render 'shared/trackers', location: :before_closing_body

@@ -1,0 +1,11 @@
+#profile
+  .rows
+    section.col-md-8
+      = render 'shared/entries', entries: @entries
+
+    aside.col-md-4
+      .thumbnail
+        = link_to gravatar_tag(current_user), edit_profile_path
+        .caption
+          h3.text-center
+            = link_to current_user.nickname, edit_profile_path

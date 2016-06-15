@@ -9,6 +9,14 @@ module ApplicationHelper
     controller_name == 'entries' && action_name.in?(['new', 'edit', 'create', 'update'])
   end
 
+  def sign_in_page?
+    controller_name.to_sym == :sessions
+  end
+
+  def profile_page?
+    controller_name.to_sym == :profile
+  end
+
   def page_name
     [controller_name, action_name].join(':')
   end

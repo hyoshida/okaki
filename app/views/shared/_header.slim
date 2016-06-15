@@ -19,13 +19,32 @@ nav.navbar.navbar-default
               = title_other_word.camelize
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav.navbar-right
-        = render 'shared/navigations', location: :header
+        - case
+        - when user_signed_in?
+          li
+            = link_to 'プロフィール', profile_path
+          li
+            = link_to 'サインアウト', destroy_user_session_path, method: :delete
+        - when sign_in_page?
+        - else
+          = render 'shared/navigations', location: :header
 
 nav.navbar.navbar-inverse
   .container
     .navbar-collapse
       ul.nav.navbar-nav
-        = render 'shared/navigations', location: :nav
+        - case
+        - when sign_in_page?
+          li
+            = link_to "ようこそ！ #{Blog.instance.title}へ", '#'
+        - when profile_page?
+          li
+            = link_to '記事', entries_profile_path
+          li
+            = link_to 'プロフィール編集', edit_profile_path
+        - else
+          = render 'shared/navigations', location: :nav
+
       - if user_signed_in?
         ul.nav.navbar-nav.navbar-right
           li
