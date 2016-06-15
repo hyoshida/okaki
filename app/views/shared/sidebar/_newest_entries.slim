@@ -4,7 +4,7 @@
       .fa.fa-flag<
       | 最近の記事
     .list-group
-      - Entry.newest.each do |entry|
+      - Entry.published.newest.each do |entry|
         = link_to [entry.user, entry], class: 'list-group-item' do
           .heading
             ul.pull-right.list-inline

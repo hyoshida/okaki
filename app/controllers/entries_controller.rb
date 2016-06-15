@@ -6,7 +6,7 @@ class EntriesController < ApplicationController
 
   # GET /users/:user_name/entries
   def index
-    @entries = @user.entries.recent.page(params[:page]).per(per_page).all
+    @entries = @user.entries.published.recent.page(params[:page]).per(per_page).all
   end
 
   # GET /users/:user_name/entries/1
@@ -67,7 +67,7 @@ class EntriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_entry
-    @entry = @user.entries.friendly.find(params[:slug])
+    @entry = @user.entries.published.friendly.find(params[:slug])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
