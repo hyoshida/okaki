@@ -4,34 +4,4 @@
       = render 'shared/entries', entries: @entries
 
     aside.col-md-4
-      #profile-card
-        .panel.panel-default
-          .panel-body
-            .media
-              .media-left
-                = link_to gravatar_tag(current_user, class: 'img-circle media-object'), edit_profile_path
-              .media-body
-                h4.media-heading
-                  = link_to current_user.nickname, edit_profile_path
-
-                ul.list-inline
-                  li
-                    dl
-                      dt
-                        | 記事数
-                      dd.text-center
-                        = @entries.count
-                  li
-                    dl
-                      dt
-                        | 最終投稿
-                      dd.text-center
-                        = time_ago_in_words @entries.maximum(:created_at)
-                  li
-                    dl
-                      dt
-                        | ユーザーID
-                      dd.text-center.text-muted
-                        | @#{current_user.name}
-          .panel-footer
-            = strip_tags current_user.profile
+      = render 'shared/profile_card', user: current_user
