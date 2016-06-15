@@ -5,6 +5,10 @@ module ApplicationHelper
     image_tag "//www.gravatar.com/avatar/#{gravatar_id}?default=mm&size=#{size}", options
   end
 
+  def edit_gravatar_path
+    "https://www.gravatar.com/emails/#{current_user.email}"
+  end
+
   def editor_mode?
     controller_name == 'entries' && action_name.in?(['new', 'edit', 'create', 'update'])
   end

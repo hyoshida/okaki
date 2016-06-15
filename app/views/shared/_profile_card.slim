@@ -1,4 +1,4 @@
-- user_path = (current_user == user) ? edit_profile_path : user_path(user)
+- is_author = (current_user == user)
 - entries = user.entries.published
 
 #profile-card
@@ -6,10 +6,10 @@
     .panel-body
       .media
         .media-left
-          = link_to gravatar_tag(user, class: 'img-circle media-object'), user_path
+          = link_to gravatar_tag(user, class: 'img-circle media-object'), (is_author ? edit_gravatar_path : user_path(user)), target: "#{'_blank' if is_author}"
         .media-body
           h4.media-heading
-            = link_to user.nickname, user_path
+            = link_to user.nickname, (is_author ? edit_profile_path : user_path(user))
 
           ul.list-inline
             li
