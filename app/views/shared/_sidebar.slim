@@ -1,9 +1,9 @@
 - ads = Advertisement.all
-- first_ad = ads.first
+- first_ads = [ads.first].compact
 - other_ads = ads - [ads.first]
 
 - if controller_name.to_sym == :home
-  = render 'shared/sidebar/advertisements', advertisements: [first_ad]
+  = render 'shared/sidebar/advertisements', advertisements: first_ads
   = render 'shared/sidebar/popular_entries'
   = render 'shared/sidebar/newest_entries'
   = render 'shared/sidebar/facebook'
@@ -11,7 +11,7 @@
   = render 'shared/sidebar/advertisements', advertisements: other_ads
 - else
   = render 'shared/sidebar/categories'
-  = render 'shared/sidebar/advertisements', advertisements: [first_ad]
+  = render 'shared/sidebar/advertisements', advertisements: first_ads
   = render 'shared/sidebar/popular_entries'
   = render 'shared/sidebar/newest_entries'
   = render 'shared/sidebar/facebook'
