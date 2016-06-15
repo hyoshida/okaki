@@ -24,12 +24,6 @@
                   | 最終投稿
                 dd.text-center
                   = time_ago_in_words entries.maximum(:created_at)
-            li
-              dl
-                dt
-                  | ユーザーID
-                dd.text-center.text-muted
-                  | @#{user.name}
     - if user.profile.present?
       .panel-footer
         = strip_tags user.profile
