@@ -1,7 +1,2 @@
 #profile
-  .rows
-    section.col-md-8
-      = render 'shared/entries', entries: @entries
-
-    aside.col-md-4
-      = render 'shared/profile_card', user: current_user
+  = render 'shared/entries', entries: @entries

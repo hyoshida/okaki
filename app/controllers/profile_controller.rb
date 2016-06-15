@@ -6,14 +6,29 @@ class ProfileController < ApplicationController
   end
 
   def edit
-    redirect_to profile_path
   end
 
   def update
-    redirect_to profile_path
+    if current_user.update(profile_params)
+      redirect_to profile_path, notice: 'Profile was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def entries
     redirect_to profile_path
+  end
+
+  private
+
+  def profile_params
+    params[:user].delete(:password) if params[:user][:password].blank?
+    params.fetch(:user, {}).permit(
+      :nickname,
+      :profile,
+      :email,
+      :password
+    )
   end
 end
