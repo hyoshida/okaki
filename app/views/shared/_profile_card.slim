@@ -30,5 +30,6 @@
                   | ユーザーID
                 dd.text-center.text-muted
                   | @#{user.name}
-    .panel-footer
-      = strip_tags user.profile
+    - if user.profile.present?
+      .panel-footer
+        = strip_tags user.profile
