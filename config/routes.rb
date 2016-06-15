@@ -17,6 +17,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :profile, controller: :profile, only: [:show, :edit, :update] do
+    collection do
+      get :entries
+    end
+  end
+
   namespace :admin do
     resource :dashboard, only: [:show]
 

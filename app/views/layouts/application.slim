@@ -10,7 +10,22 @@ html
     = render 'shared/trackers', location: :head
 
   body data-page="#{page_name}"
-    - if editor_mode?
+    - case
+    - when sign_in_page?
+      = render 'shared/header'
+      .container
+        main
+          = render 'shared/notifier'
+          = yield
+    - when profile_page?
+      = render 'shared/header'
+      .container
+        main.col-md-8
+          = render 'shared/notifier'
+          = yield
+        aside.col-md-4
+          = render 'shared/profile_card', user: current_user
+    - when editor_mode?
       .container-fluid
         main
           = render 'shared/notifier'

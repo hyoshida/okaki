@@ -1,0 +1,29 @@
+- user_path = (current_user == user) ? edit_profile_path : user_path(user)
+- entries = user.entries.published
+
+#profile-card
+  .panel.panel-default
+    .panel-body
+      .media
+        .media-left
+          = link_to gravatar_tag(user, class: 'img-circle media-object'), user_path
+        .media-body
+          h4.media-heading
+            = link_to user.nickname, user_path
+
+          ul.list-inline
+            li
+              dl
+                dt
+                  | 記事数
+                dd.text-center
+                  = entries.count
+            li
+              dl
+                dt
+                  | 最終投稿
+                dd.text-center
+                  = time_ago_in_words entries.maximum(:created_at)
+    - if user.profile.present?
+      .panel-footer
+        = strip_tags user.profile

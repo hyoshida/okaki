@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @entries = Entry.recent.page(params[:page]).per(per_page).all
+    @entries = Entry.published.recent.page(params[:page]).per(per_page).all
   end
 
   # Based on http://stackoverflow.com/questions/4827232/generating-rss-feed-in-rails-3/4832591#4832591
@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     @title = Blog.instance.title
 
     # the news items
-    @entries = Entry.recent.limit(20)
+    @entries = Entry.published.recent.limit(20)
 
     # this will be our Feed's update timestamp
     @updated_at = @entries.first.updated_at if @entries.any?

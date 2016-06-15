@@ -10,7 +10,10 @@
 
       .media-body
         h4.media-heading
-          = link_to entry.title, [user, entry]
+          = link_to entry.title, [user, entry], class: "#{'draft' if entry.draft}"
+          - if entry.draft
+            small<
+              | 下書き
         = strip_tags entry.headline
 
         .media-footer

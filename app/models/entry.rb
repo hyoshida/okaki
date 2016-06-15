@@ -14,6 +14,7 @@ class Entry < ActiveRecord::Base
   belongs_to :category
   has_many :recommends, dependent: :destroy
 
+  scope :published, -> { where(draft: false) }
   scope :recent, -> { order(updated_at: :desc) }
   scope :newest, -> { order(created_at: :desc).limit(5) }
   scope :most_viewed, -> { order(impressions_count: :desc, created_at: :desc) }
@@ -56,7 +57,7 @@ class Entry < ActiveRecord::Base
     # from DoRuby
     def find_by_permalink!(user, date_str, slug)
       date = Date.new(date_str[0, 4].to_i, date_str[4, 2].to_i, date_str[6, 2].to_i)
-      user.entries.find_by!('DATE(created_at) = ? AND slug = ?', date, slug)
+      user.entries.published.find_by!('DATE(created_at) = ? AND slug = ?', date, slug)
     end
   end
 
