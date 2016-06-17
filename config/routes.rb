@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :pages, only: [:show]
+
   namespace :admin do
     resource :dashboard, only: [:show]
 

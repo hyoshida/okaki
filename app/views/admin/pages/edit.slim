@@ -3,7 +3,7 @@
     .admin-panel-heading
       ul.pull-right.list-inline
         li
-          = link_to 'プレビュー', '#', class: 'btn btn-default'
+          = link_to 'プレビュー', page_path(@page.slug), class: 'btn btn-default', target: '_blank'
         li.devide
         li
           = link_to_save
