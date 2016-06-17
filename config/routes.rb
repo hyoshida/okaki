@@ -54,6 +54,7 @@ Rails.application.routes.draw do
         post :move_to_top
       end
     end
+    resources :pages
     resources :trackers
     resource :blog, controller: :blog, only: [:show, :edit, :update]
 

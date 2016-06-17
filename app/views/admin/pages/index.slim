@@ -1,0 +1,41 @@
+.admin-panel
+  .admin-panel-heading
+    ul.pull-right.list-inline
+      li
+        = link_to '新規作成', new_admin_page_path, class: 'btn btn-default'
+
+    h1.page-header
+      | ページ
+      small<
+        | #{@pages.count} 件
+
+  .admin-panel-body
+    section
+      - if @pages.empty?
+        | レコードが見つかりませんでした。
+      - else
+        table.table.table-striped
+          thead
+            th
+              = @pages.klass.human_attribute_name(:active)
+            th
+              = @pages.klass.human_attribute_name(:title)
+            th
+              = @pages.klass.human_attribute_name(:updated_at)
+            th
+              = @pages.klass.human_attribute_name(:created_at)
+          tbody
+            - @pages.each do |page|
+              tr
+                td
+                  - if page.active?
+                    | ✔︎
+                td
+                  = link_to page.title, [:admin, page]
+                  br
+                  small.text-muted
+                    = page.slug
+                td
+                  = l page.updated_at
+                td
+                  = l page.created_at
