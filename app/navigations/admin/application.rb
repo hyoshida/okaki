@@ -51,6 +51,11 @@ AwesomeAdminLayout.define(only: Admin::ApplicationController) do |controller|
       icon 'star'
     end
 
+    item 'Pages' do
+      link controller.admin_pages_path
+      icon 'globe'
+    end
+
     divider
 
     item 'Trackers' do

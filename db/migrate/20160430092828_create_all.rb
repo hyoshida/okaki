@@ -139,5 +139,13 @@ class CreateAll < ActiveRecord::Migration
       t.integer :position
       t.timestamps null: false
     end
+
+    create_table :pages do |t|
+      t.boolean :active, null: false, default: true, index: true
+      t.string :slug, null: false, index: { unique: true }
+      t.string :title, null: false
+      t.text :content, null: false
+      t.timestamps null: false
+    end
   end
 end
