@@ -63,7 +63,7 @@ class Entry < ActiveRecord::Base
 
   def content
     if doruby?
-      self.class.syntax_highlight(body)
+      body.html_safe
     else
       self.class.markdown(body)
     end
