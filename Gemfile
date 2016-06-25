@@ -121,3 +121,6 @@ gem 'enumerize'
 
 # Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.
 gem 'select2-rails'
+
+# A tagging plugin for Rails applications that allows for custom tagging along dynamic contexts.
+gem 'acts-as-taggable-on', '~> 3.4'
