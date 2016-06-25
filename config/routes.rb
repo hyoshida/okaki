@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :categories, only: :show
+  resources :tags, only: :show
   resources :upload, controller: :assets, as: :assets, only: :create
 
   resources :users, param: :name do

@@ -23,15 +23,15 @@
                 | カテゴリ:
               li
                 = link_to @entry.category.name, @entry.category, class: 'label label-warning'
-      - if @entry.tags.any?
+      - if @entry.tag_list.any?
         li
           .tags
             ul.list-inline
               li
                 | タグ:
-              - @entry.tags.each do |tag|
+              - @entry.tag_list.each do |tag_name|
                 li
-                  = link_to tag.name, @entry.category, class: 'label label-default'
+                  = link_to tag_name, tag_path(tag_name), class: 'label label-default'
 
   .title
     h1.page-header

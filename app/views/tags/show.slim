@@ -1,0 +1,11 @@
+- content_for :breadcrumb do
+  ol.breadcrumb
+    li>
+      = link_to 'ホーム', root_path
+    li.active
+      = @tag_name
+
+h1
+  = title "#{@tag_name}に関する記事一覧"
+
+= render 'shared/entries', entries: @entries
