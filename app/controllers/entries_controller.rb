@@ -74,6 +74,7 @@ class EntriesController < ApplicationController
   def entry_params
     params.fetch(:entry, {}).permit(
       :category_id,
+      :tag_list,
       :title,
       :headline,
       :body

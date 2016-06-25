@@ -19,7 +19,11 @@
       .form-group
         = f.text_field :title, placeholder: f.object.class.human_attribute_name(:title)
       .form-group
-        = f.grouped_collection_select :category_id, Category.roots, :children, :name, :id, :name, include_blank: "<#{f.object.class.human_attribute_name(:category_id)}>"
+        .row
+          .col-sm-6
+            = f.grouped_collection_select :category_id, Category.roots, :children, :name, :id, :name, include_blank: "<#{f.object.class.human_attribute_name(:category_id)}>"
+          .col-sm-6
+            = f.text_field :tag_list, value: @entry.tag_list.to_s, placeholder: 'カンマ区切りでタグを指定する（例: ruby, vim, unix）'
       .form-group
         = f.text_area :headline, placeholder: f.object.class.human_attribute_name(:headline), rows: 3
 
