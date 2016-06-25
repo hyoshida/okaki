@@ -10,14 +10,28 @@
       = @entry.title
 
 #entry
-  ul.list-inline
-    li
-      .created_at
-        = l @entry.created_at.to_date
-    - if @entry.category
+  .category-and-tags
+    ul.list-inline
       li
-        .category
-          = link_to @entry.category.name, @entry.category, class: 'label label-default'
+        .created_at
+          = l @entry.created_at.to_date
+      - if @entry.category
+        li
+          .category
+            ul.list-inline
+              li
+                | カテゴリ:
+              li
+                = link_to @entry.category.name, @entry.category, class: 'label label-warning'
+      - if @entry.tags.any?
+        li
+          .tags
+            ul.list-inline
+              li
+                | タグ:
+              - @entry.tags.each do |tag|
+                li
+                  = link_to tag.name, @entry.category, class: 'label label-default'
 
   .title
     h1.page-header
