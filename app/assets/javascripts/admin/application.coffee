@@ -5,6 +5,7 @@
 #= require awesome_admin_layout
 #= require jstree
 #= require select2
+#= require bootstrap-tagsinput
 #= require turbolinks
 #= require_tree .
 
