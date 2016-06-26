@@ -15,9 +15,34 @@
       coffee:
         $('#myModal').modal('show')
 
+    #js-eye-catch-image-modal.modal.fade tabindex="-1"
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close type="button" class="close" data-dismiss="modal"
+              span
+                | &times;
+            strong.modal-title
+              | 記事画像
+          .modal-body
+            .form-group
+              = f.file_field :image
+
+            - if f.object.image?
+              p.thumbnail
+                = image_tag f.object.image_url
+                - if f.object.persisted?
+                  label.remove
+                    span>
+                      = f.check_box :remove_image
+                    span>
+                      | 削除する
+
     .editor-header
       .form-group
         = f.text_field :title, placeholder: f.object.class.human_attribute_name(:title)
+        #eye-catch-image
+          = link_to '記事画像...', '#', class: 'btn btn-default',  data: { toggle: 'modal', target: '#js-eye-catch-image-modal' }
       .form-group
         .row
           .col-sm-6

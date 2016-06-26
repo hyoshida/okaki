@@ -80,7 +80,9 @@ class EntriesController < ApplicationController
       :tag_list,
       :title,
       :headline,
-      :body
+      :body,
+      :image,
+      :remove_image
     )
   end
 
