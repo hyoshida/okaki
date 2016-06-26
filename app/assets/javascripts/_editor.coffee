@@ -10,6 +10,7 @@ class @Editor
 
     @editor = @initializePagedown()
     @hookInsertIamgeDialog()
+    @addEventListenerToDraftButton()
 
   setSelectors: ->
     @$textarea = $('#editor .editor-body-left textarea')
@@ -52,4 +53,12 @@ class @Editor
       )
 
       true # tell the editor that we'll take care of getting the image url
+    )
+
+  addEventListenerToDraftButton: ->
+    $('#js-draft').on('click', (_event) ->
+      $checkbox = $(this).find('input[type="checkbox"]')
+      $checkbox.prop('checked', true)
+      $form = $(this).closest('form')
+      $form.submit()
     )

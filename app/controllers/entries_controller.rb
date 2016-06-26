@@ -67,12 +67,15 @@ class EntriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_entry
-    @entry = @user.entries.published.friendly.find(params[:slug])
+    entries = @user.entries.friendly
+    entries = entries.published if current_user != @user
+    @entry = entries.find(params[:slug])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def entry_params
     params.fetch(:entry, {}).permit(
+      :draft,
       :category_id,
       :tag_list,
       :title,

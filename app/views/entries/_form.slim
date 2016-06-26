@@ -36,7 +36,20 @@
 
     .editor-footer
       .pull-right
-        = f.submit
+        .btn-group.dropup
+          = f.submit '投稿する'
+
+          / NOTE: なぜか高さがおかしくなる。とりあえずstyle指定で回避
+          button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown" style="height: #{20 + (6 * 2) + (1 * 2)}px"
+            span.caret
+            span.sr-only
+              | Toggle Dropdown
+
+          ul.dropdown-menu#js-draft
+            li
+              = f.check_box :draft, checked: false, class: 'hidden'
+              = link_to '下書き保存', '#'
+
       = link_to 'Cancel', @entry.persisted? ? [@user, @entry] : user_entries_path(@user), class: 'btn btn-default'
 
 #uploadImageDialog.modal.fade tabindex="-1"

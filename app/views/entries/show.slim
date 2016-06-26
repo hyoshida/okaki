@@ -45,6 +45,10 @@
     .alert.alert-warning
       | この記事は公開から１年以上が経過しています。情報が古い可能性がありますのでご注意ください。
 
+  - if @entry.draft?
+    .alert.alert-warning
+      | この記事は下書きです。外部に公開するには編集画面から「投稿する」を押してください。
+
   - if @entry.image?
     .image
       = image_tag @entry.image_url, class: 'img-responsive'
