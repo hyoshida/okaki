@@ -22,6 +22,10 @@
         = f.grouped_collection_select :category_id, Category.roots, :children, :name, :id, :name, include_blank: true
 
       .form-group
+        = f.label :tag_list
+        = f.text_field :tag_list, value: @entry.tag_list.to_s, data: { role: :tagsinput }
+
+      .form-group
         = f.label :headline
         = f.text_area :headline, rows: 5
 

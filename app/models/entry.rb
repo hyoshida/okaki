@@ -7,6 +7,8 @@ class Entry < ActiveRecord::Base
 
   mount_uploader :image, AssetsUploader
 
+  acts_as_taggable
+
   SLUG_UNSAFE = /[.!~*';\/#?:@&=+$,\[\] ]/
   SLUG_SEPARATOR = '-'
 

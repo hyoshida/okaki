@@ -56,6 +56,7 @@ module Admin
     def entry_params
       params.fetch(:entry, {}).permit(
         :category_id,
+        :tag_list,
         :draft,
         :slug,
         :title,

@@ -1,0 +1,16 @@
+.bootstrap-tagsinput {
+  display: block;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+
+  input[type="text"] {
+    display: inline;
+    height: 34px - 2px;
+  }
+
+  .label {
+    padding: .5em;
+    background-color: $label-default-bg;
+  }
+}

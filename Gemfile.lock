@@ -37,6 +37,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     acts_as_list (0.7.4)
       activerecord (>= 3.0)
     ancestry (2.1.0)
@@ -173,6 +175,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.6)
       sprockets-rails
+    rails-assets-bootstrap-tagsinput (0.3.14)
     rails-assets-jquery (2.2.3)
     rails-assets-jstree (3.3.1)
       rails-assets-jquery (>= 1.9.1)
@@ -272,6 +275,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 3.4)
   acts_as_list
   ancestry
   awesome_admin_layout
@@ -298,6 +302,7 @@ DEPENDENCIES
   pagedown-bootstrap-rails
   pg
   rails (= 4.2.6)
+  rails-assets-bootstrap-tagsinput!
   rails-assets-jstree!
   ransack
   redcarpet
