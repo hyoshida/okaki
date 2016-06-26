@@ -27,6 +27,11 @@ class Entry < ActiveRecord::Base
   validates :body, presence: true
   validates :slug, presence: true, length: { maximum: 255 }
 
+  with_options if: -> { !draft? && !doruby? } do
+    validates :category_id, presence: true
+    validates :image, presence: true
+  end
+
   before_validation :generate_slug, on: :create
 
   class << self

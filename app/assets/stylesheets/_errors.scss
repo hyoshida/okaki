@@ -16,3 +16,8 @@
 .field_with_errors {
   @extend .has-error;
 }
+
+.field_with_errors .btn {
+  color: $state-danger-text;
+  border-color: $state-danger-text;
+}

@@ -41,7 +41,7 @@
     .editor-header
       .form-group
         = f.text_field :title, placeholder: f.object.class.human_attribute_name(:title)
-        #eye-catch-image
+        #eye-catch-image class="#{'field_with_errors' if f.object.errors[:image].any?}"
           = link_to '記事画像...', '#', class: 'btn btn-default',  data: { toggle: 'modal', target: '#js-eye-catch-image-modal' }
       .form-group
         .row
