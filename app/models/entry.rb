@@ -30,19 +30,15 @@ class Entry < ActiveRecord::Base
   before_validation :generate_slug, on: :create
 
   class << self
-    def syntax_highlight(html)
-      doc = Nokogiri::HTML(html)
-      doc.search('pre').each do |pre|
-        # Workaround: `lang` can use \w letters. Raise ArgumentError in CodeRay::PluginHost#valudate_id when use not \w letter.
-        lang = pre.children.attribute('class').try(:value).to_s.gsub(/[^ \w]/, '_').split(' ').first || :text
-        code = CodeRay.scan(pre.inner_html.strip, lang).div
-        pre.replace(code)
+    class CodeRayify < Redcarpet::Render::HTML
+      def block_code(code, language)
+        language ||= :plaintext
+        CodeRay.scan(code, language).div
       end
-      doc.to_s.html_safe
     end
 
     def markdown(text)
-      renderer = Redcarpet::Render::HTML.new(hard_wrap: true, filter_html: true)
+      renderer = CodeRayify.new(hard_wrap: true, filter_html: true)
       options = {
         autolink: true,
         no_intra_emphasis: true,
@@ -52,8 +48,7 @@ class Entry < ActiveRecord::Base
         superscript: true,
         tables: true
       }
-      html = Redcarpet::Markdown.new(renderer, options).render(text)
-      syntax_highlight(html).html_safe
+      Redcarpet::Markdown.new(renderer, options).render(text).html_safe
     end
 
     # from DoRuby
