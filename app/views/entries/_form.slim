@@ -70,7 +70,7 @@
             span.sr-only
               | Toggle Dropdown
 
-          ul.dropdown-menu#js-draft
+          ul#js-draft.dropdown-menu.dropdown-menu-right
             li
               = f.check_box :draft, checked: false, class: 'hidden'
               = link_to '下書き保存', '#'
