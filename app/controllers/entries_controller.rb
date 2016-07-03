@@ -28,6 +28,7 @@ class EntriesController < ApplicationController
     @entry = @user.entries.new(entry_params)
 
     if @entry.save
+      @entry.create_activity :create, params: { title: @entry.title }, owner: @user
       redirect_to [@user, @entry], notice: 'Entry was successfully created.'
     else
       render :new
@@ -37,6 +38,7 @@ class EntriesController < ApplicationController
   # PATCH/PUT /users/:user_name/entries/1
   def update
     if @entry.update(entry_params)
+      @entry.create_activity :update, params: { title: @entry.title }, owner: @user
       redirect_to [@user, @entry], notice: 'Entry was successfully updated.'
     else
       render :edit
@@ -45,6 +47,7 @@ class EntriesController < ApplicationController
 
   # DELETE /users/:user_name/entries/1
   def destroy
+    @entry.create_activity :destroy, params: { title: @entry.title }, owner: @user
     @entry.destroy
     redirect_to user_entries_url(@user), notice: 'Entry was successfully destroyed.'
   end

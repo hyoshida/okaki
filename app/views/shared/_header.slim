@@ -41,6 +41,8 @@ nav.navbar.navbar-inverse
             = link_to "ようこそ！ #{Blog.instance.title}へ", '#'
         - when profile_page?
           li
+            = link_to 'ホーム', activities_profile_path
+          li
             = link_to '記事', entries_profile_path
           li
             = link_to 'プロフィール編集', edit_profile_path

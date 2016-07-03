@@ -1,5 +1,6 @@
 class Entry < ActiveRecord::Base
   extend FriendlyId
+  include PublicActivity::Common
 
   friendly_id :slug
 

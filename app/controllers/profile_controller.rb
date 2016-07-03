@@ -20,6 +20,10 @@ class ProfileController < ApplicationController
     redirect_to profile_path
   end
 
+  def activities
+    @activities = PublicActivity::Activity.order(created_at: :desc).all
+  end
+
   private
 
   def profile_params

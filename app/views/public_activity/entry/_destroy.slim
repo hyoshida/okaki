@@ -1,0 +1,16 @@
+li.media
+  .media-left
+    = gravatar_tag activity.owner, class: 'media-object img-circle'
+  .media-body
+    p.media-heading
+      strong
+        = link_to activity.owner.nickname, activity.owner
+        small.text-muted
+          span.name<
+            | @#{activity.owner.name}
+          span.time<
+            = time_ago_in_words activity.created_at
+    p
+      | 記事『
+      = activity.parameters[:title]
+      | 』を削除しました。
