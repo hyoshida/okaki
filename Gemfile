@@ -130,3 +130,6 @@ gem 'rails-assets-bootstrap-tagsinput', source: 'https://rails-assets.org'
 
 # localStorage wrapper for all browsers without using cookies or flash.
 gem 'rails-assets-store.js', source: 'https://rails-assets.org'
+
+# public_activity provides easy activity tracking for your ActiveRecord, Mongoid 3 and MongoMapper models in Rails 3 and 4.
+gem 'public_activity'
