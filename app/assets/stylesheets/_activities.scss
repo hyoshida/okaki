@@ -1,0 +1,36 @@
+#activities {
+  padding: 15px;
+  background-color: #f5f8fa;
+  border: 1px solid darken(#f5f8fa, 5%);
+  @include border-radius($border-radius-base);
+
+  .media-body {
+    padding: $panel-body-padding;
+    background: $panel-bg;
+    border: 1px solid $panel-inner-border;
+    @include border-radius($border-radius-base);
+  }
+
+  .media-heading a {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: #444;
+    }
+  }
+
+  .name,
+  .time {
+    font-weight: normal;
+  }
+
+  .name {
+    margin: 0 2px;
+  }
+
+  .time:before {
+    content: "\00b7";
+    margin-right: 4px;
+  }
+}

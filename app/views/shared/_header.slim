@@ -41,9 +41,11 @@ nav.navbar.navbar-inverse
             = link_to "ようこそ！ #{Blog.instance.title}へ", '#'
         - when profile_page?
           li
-            = link_to '記事', entries_profile_path
+            = link_to 'ホーム', activities_profile_path, class: "#{'active' if controller_name == 'profile' && action_name == 'activities' }"
           li
-            = link_to 'プロフィール編集', edit_profile_path
+            = link_to '記事', entries_profile_path, class: "#{'active' if controller_name == 'profile' && action_name == 'entries' }"
+          li
+            = link_to 'プロフィール編集', edit_profile_path, class: "#{'active' if controller_name == 'profile' && action_name == 'edit' }"
         - else
           = render 'shared/navigations', location: :nav
 

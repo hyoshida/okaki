@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resource :profile, controller: :profile, only: [:show, :edit, :update] do
     collection do
       get :entries
+      get :activities
     end
   end
 

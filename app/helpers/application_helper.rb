@@ -1,7 +1,7 @@
 module ApplicationHelper
   def gravatar_tag(user, options = {})
     size = options.delete(:size) || 80
-    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+    gravatar_id = Digest::MD5.hexdigest(user.email.downcase) if user
     image_tag "//www.gravatar.com/avatar/#{gravatar_id}?default=mm&size=#{size}", options
   end
 

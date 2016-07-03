@@ -84,7 +84,8 @@ table {
     padding: 15px 30px;
 
     &:hover,
-    &:active {
+    &:active,
+    &.active {
       padding-bottom: 15px - 4px;
       border-bottom: 4px solid #d1e751;
     }

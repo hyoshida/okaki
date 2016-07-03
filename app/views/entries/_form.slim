@@ -60,22 +60,27 @@
         #wmd-preview-body.wmd-preview
 
     .editor-footer
-      .pull-right
-        .btn-group.dropup
-          = f.submit '投稿する'
+      ul.list-inline
+        li.pull-right
+          .btn-group.dropup
+            = f.submit '投稿する'
 
-          / NOTE: なぜか高さがおかしくなる。とりあえずstyle指定で回避
-          button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown" style="height: #{20 + (6 * 2) + (1 * 2)}px"
-            span.caret
-            span.sr-only
-              | Toggle Dropdown
+            / NOTE: なぜか高さがおかしくなる。とりあえずstyle指定で回避
+            button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown" style="height: #{20 + (6 * 2) + (1 * 2)}px"
+              span.caret
+              span.sr-only
+                | Toggle Dropdown
 
-          ul#js-draft.dropdown-menu.dropdown-menu-right
-            li
-              = f.check_box :draft, checked: false, class: 'hidden'
-              = link_to '下書き保存', '#'
+            ul#js-draft.dropdown-menu.dropdown-menu-right
+              li
+                = f.check_box :draft, checked: false, class: 'hidden'
+                = link_to '下書き保存', '#'
 
-      = link_to 'Cancel', @entry.persisted? ? [@user, @entry] : user_entries_path(@user), class: 'btn btn-default', id: 'js-cancel'
+        li
+          = link_to 'Cancel', @entry.persisted? ? [@user, @entry] : user_entries_path(@user), class: 'btn btn-default', id: 'js-cancel'
+        - if @entry.persisted?
+          li
+            = link_to 'Destroy', [@user, @entry], method: :delete, class: 'btn btn-danger', data: { confirm: '本当に削除しますか？' }
 
 #uploadImageDialog.modal.fade tabindex="-1"
   .modal-dialog

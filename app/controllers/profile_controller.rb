@@ -2,7 +2,7 @@ class ProfileController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @entries = current_user.entries.recent.page(params[:page]).per(20)
+    redirect_to activities_profile_path
   end
 
   def edit
@@ -17,7 +17,11 @@ class ProfileController < ApplicationController
   end
 
   def entries
-    redirect_to profile_path
+    @entries = current_user.entries.recent.page(params[:page]).per(20)
+  end
+
+  def activities
+    @activities = PublicActivity::Activity.order(created_at: :desc).limit(20)
   end
 
   private
