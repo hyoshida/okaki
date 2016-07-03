@@ -23,7 +23,10 @@
                 dt
                   | 最終投稿
                 dd.text-center
-                  = time_ago_in_words entries.maximum(:created_at)
+                  - if entries.any?
+                    = time_ago_in_words entries.maximum(:created_at)
+                  - else
+                    | -
     - if user.profile.present?
       .panel-footer
         = strip_tags user.profile
