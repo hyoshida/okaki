@@ -22,7 +22,9 @@ nav.navbar.navbar-default
         - case
         - when user_signed_in?
           li
-            = link_to 'プロフィール', profile_path
+            = link_to profile_path do
+              = gravatar_tag current_user, class: 'img-circle', id: 'header-gravatar'
+              = current_user.nickname
           li
             = link_to 'サインアウト', destroy_user_session_path, method: :delete
         - when sign_in_page?
