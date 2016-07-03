@@ -10,6 +10,8 @@ class @Editor
 
     @editor = @initializePagedown()
     @hookInsertIamgeDialog()
+    @restoreForm()
+    @addEventListenerToStoreForm()
     @addEventListenerToDraftButton()
 
   setSelectors: ->
@@ -53,6 +55,16 @@ class @Editor
       )
 
       true # tell the editor that we'll take care of getting the image url
+    )
+
+  restoreForm: ->
+    values = store.get('entry')
+    @$textarea.closest('form').values(values)
+
+  addEventListenerToStoreForm: ->
+    @$textarea.closest('form').keyup(->
+      values = $(this).values()
+      store.set('entry', values)
     )
 
   addEventListenerToDraftButton: ->
