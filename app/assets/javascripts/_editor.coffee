@@ -63,7 +63,6 @@ class @Editor
 
   restoreForm: ->
     storeKey = @storeKey()
-    console.log(storeKey)
     values = store.get(storeKey)
     @$textarea.closest('form').values(values)
 
@@ -71,6 +70,12 @@ class @Editor
     storeKey = @storeKey()
     @$textarea.closest('form').keyup(->
       values = $(this).values()
+
+      # Delete sysmtem params
+      delete values['utf8']
+      delete values['_method']
+      delete values['authenticity_token']
+
       store.set(storeKey, values)
     )
 
