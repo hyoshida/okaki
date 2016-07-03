@@ -127,3 +127,6 @@ gem 'acts-as-taggable-on', '~> 3.4'
 
 # Bootstrap Tags Input is a jQuery plugin providing a Twitter Bootstrap user interface for managing tags.
 gem 'rails-assets-bootstrap-tagsinput', source: 'https://rails-assets.org'
+
+# localStorage wrapper for all browsers without using cookies or flash.
+gem 'rails-assets-store.js', source: 'https://rails-assets.org'
