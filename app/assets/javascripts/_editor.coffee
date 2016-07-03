@@ -12,6 +12,7 @@ class @Editor
     @hookInsertIamgeDialog()
     @restoreForm()
     @addEventListenerToStoreForm()
+    @addEventListenerToClearForm()
     @addEventListenerToDraftButton()
 
   setSelectors: ->
@@ -66,6 +67,11 @@ class @Editor
       values = $(this).values()
       store.set('entry', values)
     )
+
+  addEventListenerToClearForm: ->
+    func = -> (store.clear())
+    @$textarea.closest('form').submit(func)
+    $('#js-cancel').click(func)
 
   addEventListenerToDraftButton: ->
     $('#js-draft').on('click', (_event) ->

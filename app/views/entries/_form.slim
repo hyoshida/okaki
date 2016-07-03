@@ -75,7 +75,7 @@
               = f.check_box :draft, checked: false, class: 'hidden'
               = link_to '下書き保存', '#'
 
-      = link_to 'Cancel', @entry.persisted? ? [@user, @entry] : user_entries_path(@user), class: 'btn btn-default'
+      = link_to 'Cancel', @entry.persisted? ? [@user, @entry] : user_entries_path(@user), class: 'btn btn-default', id: 'js-cancel'
 
 #uploadImageDialog.modal.fade tabindex="-1"
   .modal-dialog
