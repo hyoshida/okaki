@@ -21,7 +21,7 @@ class ProfileController < ApplicationController
   end
 
   def activities
-    @activities = PublicActivity::Activity.order(created_at: :desc).all
+    @activities = PublicActivity::Activity.order(created_at: :desc).per(20)
   end
 
   private
