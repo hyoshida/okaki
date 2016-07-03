@@ -58,14 +58,20 @@ class @Editor
       true # tell the editor that we'll take care of getting the image url
     )
 
+  storeKey: ->
+    window.location.pathname
+
   restoreForm: ->
-    values = store.get('entry')
+    storeKey = @storeKey()
+    console.log(storeKey)
+    values = store.get(storeKey)
     @$textarea.closest('form').values(values)
 
   addEventListenerToStoreForm: ->
+    storeKey = @storeKey()
     @$textarea.closest('form').keyup(->
       values = $(this).values()
-      store.set('entry', values)
+      store.set(storeKey, values)
     )
 
   addEventListenerToClearForm: ->
