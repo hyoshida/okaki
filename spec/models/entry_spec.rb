@@ -25,7 +25,7 @@ RSpec.describe Entry, type: :model do
 
   describe '#eye_catch_image_url' do
     context 'it has no image' do
-      before { subject.image = nil }
+      before { subject.remove_image! }
       it { expect(subject.eye_catch_image_url).to eq('noimage.png') }
     end
 
