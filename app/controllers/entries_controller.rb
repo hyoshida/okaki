@@ -71,7 +71,7 @@ class EntriesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_entry
     entries = @user.entries.friendly
-    entries = entries.published if current_user != @user
+    entries = entries.published unless current_user
     @entry = entries.find(params[:slug])
   end
 

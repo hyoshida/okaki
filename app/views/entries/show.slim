@@ -47,7 +47,9 @@
 
   - if @entry.draft?
     .alert.alert-warning
-      | この記事は下書きです。外部に公開するには編集画面から「投稿する」を押してください。
+      | この記事は下書きです。
+      - if current_user == @user
+        | 外部に公開するには編集画面から「投稿する」を押してください。
 
   - if @entry.image?
     .image
