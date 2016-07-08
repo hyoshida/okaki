@@ -133,3 +133,6 @@ gem 'rails-assets-store.js', source: 'https://rails-assets.org'
 
 # public_activity provides easy activity tracking for your ActiveRecord, Mongoid 3 and MongoMapper models in Rails 3 and 4.
 gem 'public_activity'
+
+# Central point to collect locale data for use in Ruby on Rails.
+gem 'rails-i18n', '~> 4.0.0'
