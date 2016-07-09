@@ -57,7 +57,7 @@
     hr
 
   .body class="#{'doruby' if @entry.doruby?}"
-    = if @entry.headline.present?
+    - if @entry.headline.present?
       .headline
         = @entry.headline.html_safe
 
