@@ -39,6 +39,10 @@ class Entry < ActiveRecord::Base
     class CodeRayify < Redcarpet::Render::HTML
       def block_code(code, language)
         language ||= :plaintext
+
+        # Workaround: `language` can use \w letters. Raise ArgumentError in CodeRay::PluginHost#valudate_id when use not \w letter.
+        language = language.to_s.gsub(/[^\w]/, '.').split('.').last
+
         CodeRay.scan(code, language).div
       end
     end
