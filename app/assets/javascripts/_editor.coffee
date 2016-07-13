@@ -11,6 +11,7 @@ class @Editor
     @editor = @initializePagedown()
     @hookInsertIamgeDialog()
     @restoreForm()
+    @disableWMDKeybind()
     @addEventListenerToStoreForm()
     @addEventListenerToClearForm()
     @addEventListenerToDraftButton()
@@ -65,6 +66,27 @@ class @Editor
     storeKey = @storeKey()
     values = store.get(storeKey)
     @$textarea.closest('form').values(values)
+
+  #
+  # Disable the WMD keybind.
+  # It is registered by following code:
+  #   https://github.com/hughevans/pagedown-bootstrap-rails/blob/v2.1.2/vendor/assets/javascripts/markdown.editor.js.erb#L1172-L1235
+  #
+  disableWMDKeybind: ->
+    $wmd_input = $('#wmd-input-body')
+    return if $wmd_input.length == 0
+
+    ignore = (event) ->
+      return unless (event.ctrlKey || event.metaKey) && !event.altKey && !event.shiftKey
+      keyCode = event.charCode || event.keyCode
+      keyCodeString = String.fromCharCode(keyCode).toLowerCase()
+      return unless $.inArray(keyCodeString, ['b', 'i', 'l', 'q', 'k', 'g', 'o', 'u', 'h', 'r'])
+      event.stopPropagation()
+
+    parent = $wmd_input.parent()[0]
+    parent.addEventListener('keydown', ignore, true)
+    parent.addEventListener('keypress', ignore, true)
+    parent.addEventListener('keyup', ignore, true)
 
   addEventListenerToStoreForm: ->
     storeKey = @storeKey()
