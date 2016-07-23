@@ -8,3 +8,26 @@ ja:
   time:
     formats:
       default: "%Y-%m-%d %H:%M"
+
+  activerecord:
+    errors:
+      template:
+        body: "次の項目を確認してください。"
+        header:
+          one: ! "%{model}にエラーが発生しました。"
+          other: ! "%{model}に%{count}個のエラーが発生しました。"
+
+    models:
+      entry: "記事"
+
+    attributes:
+      timestamps: &timestamps
+        created_at: '作成日'
+        updated_at: '更新日'
+      entry:
+        title: "タイトル"
+        headline: "概要"
+        body: "本文"
+        category: "カテゴリ"
+        image: "記事画像"
+        <<: *timestamps
