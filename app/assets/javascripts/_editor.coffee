@@ -15,6 +15,7 @@ class @Editor
     @addEventListenerToStoreForm()
     @addEventListenerToClearForm()
     @addEventListenerToDraftButton()
+    @addEventListenerToDisableSubmitAfterSubmit()
 
   setSelectors: ->
     @$textarea = $('#editor .editor-body-left textarea')
@@ -112,4 +113,9 @@ class @Editor
       $checkbox.prop('checked', true)
       $form = $(this).closest('form')
       $form.submit()
+    )
+
+  addEventListenerToDisableSubmitAfterSubmit: ->
+    @$textarea.closest('form').submit( ->
+      $(this).find('.btn-group').find('input, .btn').prop('disabled', true)
     )
