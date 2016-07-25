@@ -20,6 +20,7 @@ module Admin
 
     def create
       @asset = Asset.new(asset_params)
+      @asset.user = current_user
 
       if @asset.save
         redirect_to [:admin, @asset], notice: 'Asset was successfully created.'
