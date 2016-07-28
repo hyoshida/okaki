@@ -117,5 +117,5 @@ class @Editor
 
   addEventListenerToDisableSubmitAfterSubmit: ->
     @$textarea.closest('form').submit( ->
-      $(this).find('.btn-group').find('input, .btn').prop('disabled', true)
+      $(this).find('.btn-group').find('input[type="submit"], .btn').prop('disabled', true)
     )
