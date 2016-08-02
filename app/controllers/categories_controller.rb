@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :set_category
 
   def show
-    @entries = Entry.where(category_id: @category.subtree_ids).recent.page(params[:page]).per(per_page).all
+    @entries = Entry.where(category_id: @category.subtree_ids).published.recent.page(params[:page]).per(per_page).all
   end
 
   private
